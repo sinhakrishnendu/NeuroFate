@@ -1,0 +1,4 @@
+artifact	expected_rows	notes
+demo_donor_feature_table.tsv	4	one row per pseudo-donor
+demo_model_metrics.tsv	1	tiny threshold model metrics for smoke testing only
+demo_report.md	1	short Markdown report under results/demo

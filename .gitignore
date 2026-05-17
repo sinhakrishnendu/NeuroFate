@@ -1,0 +1,184 @@
+# NeuroFate gitignore
+# Keep source, docs, configs, tests, metadata templates, and tiny demo fixtures in git.
+# Keep external biological datasets, generated results, environments, and build artifacts out.
+
+# macOS / editor noise
+.DS_Store
+._*
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyre/
+.hypothesis/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+
+# Virtual environments and local env files
+.venv/
+venv/
+env/
+ENV/
+.env
+.env.*
+!.env.example
+
+# Credentials / private local configuration
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.csr
+id_rsa*
+id_ed25519*
+*_token*
+*_secret*
+*credentials*
+*private*
+
+# Packaging / PyPI build artifacts
+build/
+dist/
+release_artifacts/
+*.egg-info/
+*.egg
+pip-wheel-metadata/
+wheelhouse/
+
+# Jupyter / notebooks
+.ipynb_checkpoints/
+
+# Large biological data and compressed downloads
+*.h5ad
+*.h5
+*.hdf5
+*.loom
+*.mtx
+*.mtx.gz
+*.csv.gz
+*.tsv.gz
+*.txt.gz
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bam
+*.bai
+*.cram
+*.crai
+*.vcf
+*.vcf.gz
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+*.7z
+*.parquet
+*.feather
+*.rds
+*.rda
+*.h5seurat
+*.zarr/
+
+# Model artifacts and binary arrays
+*.pt
+*.pth
+*.pkl
+*.pickle
+*.joblib
+*.npy
+*.npz
+
+# NeuroFate local datasets
+data/raw/*
+data/interim/*
+data/processed/*
+data/external/*
+!data/raw/.gitkeep
+!data/interim/.gitkeep
+!data/processed/.gitkeep
+!data/external/.gitkeep
+
+# NeuroFate generated outputs
+results/logs/*
+results/figures/*
+results/tables/*
+results/models/*
+results/reports/*
+results/demo/*
+!results/logs/.gitkeep
+!results/figures/.gitkeep
+!results/tables/.gitkeep
+!results/models/.gitkeep
+!results/reports/.gitkeep
+!results/demo/.gitkeep
+
+# Keep bundled tiny demo fixtures trackable, including the small gzipped TSV.
+!examples/tiny_demo/
+!examples/tiny_demo/*
+!examples/tiny_demo/tiny_sparse_expression.tsv.gz
+
+# Private manuscript drafts and build products
+manuscript/*
+!manuscript/.gitkeep
+manuscript/*.aux
+manuscript/*.bbl
+manuscript/*.bcf
+manuscript/*.blg
+manuscript/*.fdb_latexmk
+manuscript/*.fls
+manuscript/*.lof
+manuscript/*.log
+manuscript/*.lot
+manuscript/*.out
+manuscript/*.pdf
+manuscript/*.run.xml
+manuscript/*.synctex.gz
+manuscript/*.toc
+
+# Personal document formats should not be committed by accident.
+*.pdf
+*.doc
+*.docx
+*.ppt
+*.pptx
+*.xls
+*.xlsx
+
+# NeuroFate large/local data exclusions
+data/raw/
+data/interim/
+data/processed/
+data/external/
+results/models/
+results/logs/
+results/tables/
+results/figures/
+results/reports/
+dist/
+release_artifacts/
+*.h5ad
+*.h5
+*.loom
+*.zarr
+*.pt
+*.pth
+*.ckpt
+*.tar.gz
+*.whl
+*.zip
+.DS_Store
+__pycache__/
+*.pyc

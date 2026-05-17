@@ -1,0 +1,37 @@
+project:
+  name: NeuroFate
+  version: 0.1.0
+  python: ">=3.11,<3.13"
+  mode: skeleton
+  dry_run_default: true
+
+paths:
+  data_raw: data/raw
+  data_interim: data/interim
+  data_processed: data/processed
+  data_external: data/external
+  logs: results/logs
+  figures: results/figures
+  tables: results/tables
+  models: results/models
+  metadata: metadata
+
+safety:
+  allow_downloads: false
+  allow_heavy_processing: false
+  allow_model_training: false
+  allow_h5ad_processing: false
+  manual_execution_only: true
+  allow_large_hdf5_processing: false
+  allow_training: false
+  require_manual_heavy_commands: true
+  max_lightweight_file_mb: 50
+
+modalities:
+  single_cell_transcriptomics: true
+  microbiome: true
+  metabolomics: true
+  gene_regulatory_networks: true
+  protein_interaction_networks: true
+  evolutionary_features: true
+  interpretable_ml: true

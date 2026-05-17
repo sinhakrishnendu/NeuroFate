@@ -1,0 +1,70 @@
+datasets:
+  - dataset_id: sea_ad_single_nucleus
+    disease_area: Alzheimer disease
+    modality: single_cell_transcriptomics
+    source: SEA-AD manual registration
+    expected_file_type: h5ad_or_mtx_or_metadata_tsv
+    local_path: data/raw/PLACEHOLDER_SEA_AD
+    status: placeholder
+    heavy_to_download: true
+    notes: Public SEA-AD single-nucleus data placeholder; manual download/registration only.
+
+  - dataset_id: mathys_2019_ad_single_nucleus
+    disease_area: Alzheimer disease
+    modality: single_cell_transcriptomics
+    source: Mathys 2019 manual registration
+    expected_file_type: h5ad_or_mtx_or_metadata_tsv
+    local_path: data/raw/PLACEHOLDER_MATHYS_2019
+    status: placeholder
+    heavy_to_download: true
+    notes: Alzheimer single-cell/single-nucleus reference placeholder; no automatic download.
+
+  - dataset_id: rosmap_ad_transcriptomics
+    disease_area: Alzheimer disease
+    modality: transcriptomics
+    source: ROSMAP-associated manual registration
+    expected_file_type: tsv_or_csv_or_h5ad_or_mtx
+    local_path: data/raw/PLACEHOLDER_ROSMAP_AD
+    status: placeholder
+    heavy_to_download: true
+    notes: ROSMAP-associated AD transcriptomics placeholder; access and placement are manual.
+
+  - dataset_id: pd_single_cell_single_nucleus_placeholder
+    disease_area: Parkinson disease
+    modality: single_cell_transcriptomics
+    source: public_PD_manual_registration
+    expected_file_type: h5ad_or_mtx_or_metadata_tsv
+    local_path: data/raw/PLACEHOLDER_PD_SINGLE_CELL
+    status: placeholder
+    heavy_to_download: true
+    notes: Parkinson single-cell/single-nucleus dataset placeholder; specific study to be registered later.
+
+  - dataset_id: gut_brain_microbiome_metabolite_placeholder
+    disease_area: neurodegeneration
+    modality: microbiome_metabolite
+    source: microbiome_metabolite_database_manual_registration
+    expected_file_type: tsv_or_csv
+    local_path: data/external/PLACEHOLDER_GUT_BRAIN_MICROBIOME_METABOLITES
+    status: placeholder
+    heavy_to_download: true
+    notes: Gut-brain microbial/metabolite signature database placeholder; manual curation only.
+
+  - dataset_id: string_ppi_placeholder
+    disease_area: neurodegeneration
+    modality: protein_interaction_network
+    source: STRING_or_PPI_database_manual_registration
+    expected_file_type: tsv_or_graphml
+    local_path: data/external/PLACEHOLDER_STRING_PPI
+    status: placeholder
+    heavy_to_download: true
+    notes: STRING/PPI database placeholder; future network use must remain manually triggered.
+
+  - dataset_id: evolutionary_ortholog_placeholder
+    disease_area: neurodegeneration
+    modality: evolutionary_orthologs
+    source: ortholog_conservation_database_manual_registration
+    expected_file_type: tsv_or_csv
+    local_path: data/external/PLACEHOLDER_EVOLUTIONARY_ORTHOLOGS
+    status: placeholder
+    heavy_to_download: true
+    notes: Evolutionary ortholog/conservation database placeholder; manual source selection required.

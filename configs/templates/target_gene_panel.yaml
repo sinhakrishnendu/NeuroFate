@@ -1,0 +1,13 @@
+project: neurofate
+workflow: target_gene_panel
+panel_file: metadata/target_gene_panel_v1.tsv
+max_genes_default: 64
+required_columns:
+  - gene_symbol
+  - biological_role
+  - manuscript_relevance
+  - priority_tier
+  - expected_cell_types
+  - notes
+safety:
+  extraction_requires_manual_review: true

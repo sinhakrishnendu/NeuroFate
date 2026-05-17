@@ -1,0 +1,91 @@
+[build-system]
+requires = ["setuptools>=77", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neurofate"
+version = "0.1.0"
+description = "NeuroFate Apple-Silicon-ready neurodegeneration systems biology and predictive modeling platform."
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+  { name = "NeuroFate contributors" }
+]
+keywords = [
+  "neurodegeneration",
+  "single-cell",
+  "single-nucleus-rna-seq",
+  "alzheimer-disease",
+  "parkinson-disease",
+  "systems-biology",
+  "apple-silicon",
+  "machine-learning"
+]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Bio-Informatics",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Operating System :: OS Independent"
+]
+dependencies = [
+  "anndata>=0.10",
+  "h5py>=3.10",
+  "matplotlib>=3.8",
+  "networkx>=3.2",
+  "numpy>=1.26",
+  "pandas>=2.1",
+  "polars>=0.20",
+  "pyarrow>=14",
+  "pyyaml>=6.0",
+  "scanpy>=1.9.8",
+  "scikit-learn>=1.4",
+  "scipy>=1.11",
+  "zarr>=2.16"
+]
+
+[project.scripts]
+neurofate = "neurofate.cli:main"
+
+[project.optional-dependencies]
+torch = [
+  "torch>=2.2"
+]
+dev = [
+  "build>=1.2",
+  "pytest>=7.4",
+  "ruff>=0.3",
+  "twine>=5.0"
+]
+
+[project.urls]
+Homepage = "https://github.com/krishnendu/NeuroFate"
+Repository = "https://github.com/krishnendu/NeuroFate"
+Documentation = "https://github.com/krishnendu/NeuroFate#readme"
+Issues = "https://github.com/krishnendu/NeuroFate/issues"
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["neurofate*"]
+
+[tool.setuptools.package-data]
+neurofate = ["resources/tiny_demo/*.tsv"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

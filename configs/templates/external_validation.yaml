@@ -1,0 +1,12 @@
+project: neurofate
+workflow: external_validation
+registry: metadata/external_validation_registry.tsv
+sea_ad_feature_table: results/tables/phase5_donor_feature_table.tsv
+external_feature_tables:
+  mathys_2019_ad: results/tables/mathys_2019_phase5_donor_feature_table.tsv
+outputs:
+  crosscohort_table: results/tables/crosscohort_donor_feature_table.tsv
+  metrics: results/tables/phase7_crosscohort_metrics.tsv
+safety:
+  donor_level_validation: true
+  no_overclaiming_audit_required: true

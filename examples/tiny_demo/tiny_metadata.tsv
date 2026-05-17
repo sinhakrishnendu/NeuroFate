@@ -1,0 +1,13 @@
+cell_id	donor_id	cell_type	diagnosis	pathology_group
+cell_001	D001	microglia	reference	low
+cell_002	D001	astrocyte	reference	low
+cell_003	D001	neuron	reference	low
+cell_004	D002	microglia	reference	low
+cell_005	D002	astrocyte	reference	low
+cell_006	D002	neuron	reference	low
+cell_007	D003	microglia	disease	high
+cell_008	D003	astrocyte	disease	high
+cell_009	D003	neuron	disease	high
+cell_010	D004	microglia	disease	high
+cell_011	D004	astrocyte	disease	high
+cell_012	D004	neuron	disease	high

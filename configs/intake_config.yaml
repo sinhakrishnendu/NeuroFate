@@ -1,0 +1,20 @@
+intake:
+  manual_execution_only: true
+  allow_downloads: false
+  allow_remote_fetch: false
+  allow_checksum_only: true
+  allow_file_opening: false
+  allow_h5ad_processing: false
+  allow_large_file_validation: false
+  max_lightweight_file_size_mb: 5
+
+paths:
+  dataset_registry: metadata/dataset_registry.tsv
+  manuscript_module_map: metadata/manuscript_module_map.tsv
+  provenance_template: metadata/provenance_template.tsv
+  dataset_intake_checklist: metadata/dataset_intake_checklist.tsv
+  logs: results/logs
+
+notes:
+  - Phase 1C validates metadata templates only.
+  - Dataset downloads, remote fetches, HDF5/h5ad opening, and checksums over real files remain disabled.

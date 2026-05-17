@@ -1,0 +1,14 @@
+project: neurofate
+workflow: mathys_csv_external_validation
+manual_execution_only: true
+inputs:
+  counts_csv_gz: data/raw/external/mathys_2019/GSE138852_counts.csv.gz
+  covariates_csv_gz: data/raw/external/mathys_2019/GSE138852_covariates.csv.gz
+  sparse_gene_panel: data/interim/external/mathys_2019/mathys_sparse_gene_panel_expression.tsv.gz
+outputs:
+  donor_feature_table: results/tables/mathys_2019_phase5_donor_feature_table.tsv
+  validation_metrics: results/tables/phase9_mathys_external_validation_metrics.tsv
+safety:
+  create_h5ad: false
+  run_scanpy: false
+  run_clustering: false

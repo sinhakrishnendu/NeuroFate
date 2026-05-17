@@ -1,0 +1,6 @@
+dataset_id	disease	modality	species	brain_region	cells_or_donors	accession	download_status	processing_status	notes
+mathys_2019_ad	Alzheimer disease	single-nucleus RNA-seq	human	prefrontal cortex	cells	GSE138852	not_downloaded	planned	Controlled or portal-linked Mathys 2019 AD snRNA-seq validation cohort; manual access required.
+rosmap_ad_transcriptomics	Alzheimer disease	bulk and/or single-nucleus transcriptomics	human	multiple brain regions	donors	AD Knowledge Portal / Synapse	not_downloaded	planned	ROSMAP donor-level validation cohort; controlled access and DUC may be required.
+pd_sn_cortical_placeholder	Parkinson disease	single-cell/single-nucleus RNA-seq	human	substantia nigra or cortex	cells	TBD	not_downloaded	planned	Preferred PD cohort should include disease labels, donor metadata, and target-gene overlap.
+tabula_sapiens_brain_optional	reference	brain single-cell reference	human	brain subset	cells	Tabula Sapiens	not_downloaded	optional	Optional non-disease reference for cell-type nomenclature harmonization.
+adkp_harmonized_optional	Alzheimer disease	harmonized transcriptomics	human	AD Knowledge Portal harmonized cohorts	donors	AD Knowledge Portal	not_downloaded	optional	Optional harmonized AD cohort for donor-level validation if access is available.

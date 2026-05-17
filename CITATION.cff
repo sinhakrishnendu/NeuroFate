@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+title: NeuroFate
+message: "If you use NeuroFate, please cite the software release and the original data sources."
+type: software
+authors:
+  - name: NeuroFate contributors
+version: 0.1.0
+date-released: 2026-05-17
+repository-code: "https://github.com/krishnendu/NeuroFate"
+abstract: "Apple-Silicon-ready neurodegeneration systems biology and predictive modeling platform."
+keywords:
+  - neurodegeneration
+  - single-nucleus RNA-seq
+  - Alzheimer disease
+  - Parkinson disease
+  - systems biology
+license: MIT

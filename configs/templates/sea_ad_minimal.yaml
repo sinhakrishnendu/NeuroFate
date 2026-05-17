@@ -1,0 +1,15 @@
+project: neurofate
+workflow: sea_ad_minimal
+manual_execution_only: true
+inputs:
+  h5ad: data/raw/sea_ad/SEAAD_MTG_RNAseq_final-nuclei.2024-02-13.h5ad
+  decoded_metadata: data/interim/sea_ad/sea_ad_obs_metadata_decoded.tsv
+  sparse_gene_panel: data/interim/sea_ad/sparse_gene_panel_expression.tsv.gz
+outputs:
+  tables_dir: results/tables
+  figures_dir: results/figures
+  logs_dir: results/logs
+safety:
+  allow_scanpy: false
+  allow_full_matrix_loading: false
+  allow_dense_conversion: false

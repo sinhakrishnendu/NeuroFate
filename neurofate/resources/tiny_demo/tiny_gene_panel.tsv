@@ -1,0 +1,6 @@
+gene_symbol	biological_role	priority_tier
+APOE	lipid_signaling_and_ad_risk	1
+TREM2	microglial_activation	1
+GFAP	astrocyte_stress	1
+SLC17A7	excitatory_neuronal_marker	2
+SNCA	synuclein_neurodegeneration	2

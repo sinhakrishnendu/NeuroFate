@@ -1,0 +1,31 @@
+gene_symbol	biological_role	manuscript_relevance	priority_tier	expected_cell_types	notes
+SNCA	alpha-synuclein biology	Parkinson disease and synucleinopathy axis	tier1	neurons;oligodendrocytes	Core PD-linked neurodegeneration marker.
+MAPT	tau biology	Alzheimer disease and tau pathology	tier1	neurons	Core tauopathy marker for AD/PD overlap.
+APP	amyloid precursor biology	Alzheimer disease amyloid pathway	tier1	neurons;glia	Core AD-linked amyloid pathway gene.
+PSEN1	gamma-secretase amyloid processing	Alzheimer disease familial risk	tier1	neurons;glia	Familial AD and amyloid processing marker.
+PSEN2	gamma-secretase amyloid processing	Alzheimer disease familial risk	tier1	neurons;glia	Familial AD and amyloid processing marker.
+APOE	lipid transport and AD risk	APOE signaling and neurodegeneration	tier1	astrocytes;microglia	Core AD genetic risk and glial lipid biology marker.
+TREM2	microglial activation	AD microglial risk and inflammatory response	tier1	microglia	Disease-associated microglia marker.
+TYROBP	microglial signaling	Microglial inflammatory network	tier1	microglia	Adapter gene for immune signaling modules.
+GFAP	astrocyte activation	Astrocyte reactivity in neurodegeneration	tier1	astrocytes	Reactive astrocyte marker.
+AIF1	microglial activation	Inflammatory microglia/macrophage state	tier1	microglia;macrophages	Also known as IBA1.
+P2RY12	homeostatic microglia	Microglial state reconstruction	tier2	microglia	Homeostatic microglia marker.
+GPNMB	disease-associated glia	Neurodegeneration-associated glial activation	tier2	microglia;astrocytes	DAM/reactive glial marker.
+LAMP5	inhibitory neuron subtype	Cell-type context for neuronal vulnerability	tier3	interneurons	Neuronal subtype marker.
+SST	inhibitory neuron subtype	Cell-type context for neuronal vulnerability	tier3	interneurons	Somatostatin interneuron marker.
+PVALB	inhibitory neuron subtype	Cell-type context for neuronal vulnerability	tier3	interneurons	Parvalbumin interneuron marker.
+SLC17A7	excitatory neuron marker	Cell-type context for neuronal vulnerability	tier3	excitatory neurons	VGLUT1 excitatory neuron marker.
+MBP	myelin biology	Oligodendrocyte/myelin vulnerability	tier2	oligodendrocytes	Myelin structural marker.
+MOBP	myelin biology	Oligodendrocyte/myelin vulnerability	tier2	oligodendrocytes	Myelin-associated oligodendrocyte marker.
+PLP1	myelin biology	Oligodendrocyte/myelin vulnerability	tier2	oligodendrocytes	Myelin structural marker.
+NEFL	neuronal cytoskeleton	Axonal injury and neuronal integrity	tier2	neurons	Neurofilament light chain gene.
+NEFM	neuronal cytoskeleton	Axonal injury and neuronal integrity	tier2	neurons	Neurofilament medium chain gene.
+B2M	antigen presentation	Inflammation and immune activation	tier2	microglia;endothelial;immune	MHC class I related inflammatory marker.
+HLA-DRA	antigen presentation	Inflammation and microglial activation	tier1	microglia;immune	MHC class II antigen presentation marker.
+CX3CR1	microglial homeostasis	Microglia-neuron immune signaling	tier2	microglia	Fractalkine receptor.
+IL1B	pro-inflammatory cytokine	Gut-brain and neuroinflammatory axis	tier1	microglia;immune	Inflammatory cytokine marker.
+TNF	pro-inflammatory cytokine	Gut-brain and neuroinflammatory axis	tier1	microglia;immune	Inflammatory cytokine marker.
+NFKB1	inflammatory transcription factor	Neuroinflammatory signaling	tier2	microglia;astrocytes;immune	NF-kappaB pathway component.
+LRRK2	Parkinson disease kinase	PD genetics and inflammatory signaling	tier1	neurons;microglia	PD-linked kinase with immune roles.
+PINK1	mitochondrial quality control	Mitochondrial stress and PD biology	tier1	neurons;glia	Mitophagy pathway gene.
+PRKN	mitochondrial quality control	Mitochondrial stress and PD biology	tier1	neurons;glia	Parkin mitophagy pathway gene.

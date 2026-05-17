@@ -1,0 +1,9 @@
+project: neurofate
+workflow: apple_silicon_mps_mlp
+config_source: configs/neurofate_mps_model_config.yaml
+feature_table: results/tables/phase5_donor_feature_table.tsv
+models_dir: results/models
+safety:
+  donor_level_only: true
+  transformer_model: false
+  large_model_training: false

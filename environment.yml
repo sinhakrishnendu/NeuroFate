@@ -1,0 +1,24 @@
+name: neurofate
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - anndata
+  - h5py
+  - matplotlib
+  - networkx
+  - numpy
+  - pandas
+  - polars
+  - pyarrow
+  - pyyaml
+  - scanpy
+  - scikit-learn
+  - scipy
+  - zarr
+  - pytest
+  - pip
+  - pip:
+      - -e .
+      # OPTIONAL LIGHTWEIGHT install later if needed:
+      # - torch

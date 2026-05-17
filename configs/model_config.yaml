@@ -1,0 +1,38 @@
+modeling:
+  status: placeholder_only
+  allow_training: false
+  random_seed: 42
+  target_tasks:
+    - neurodegenerative_fate_prediction
+    - disease_state_classification
+    - interpretable_feature_prioritization
+
+features:
+  gene_expression: true
+  cell_type_abundance: true
+  microbiome_signatures: true
+  metabolite_signatures: true
+  regulatory_network_metrics: true
+  protein_interaction_metrics: true
+  evolutionary_conservation: true
+
+candidate_models:
+  classical_ml:
+    - logistic_regression
+    - random_forest
+    - gradient_boosting
+  graph_ml:
+    - placeholder_gnn
+  deep_learning:
+    - placeholder_torch_model
+
+interpretability:
+  methods:
+    - permutation_importance
+    - shap_placeholder
+    - network_centrality_context
+
+safety:
+  dry_run_default: true
+  require_explicit_train_flag: true
+  write_model_artifacts_only_under: results/models

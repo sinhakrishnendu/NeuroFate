@@ -1,0 +1,17 @@
+manual_execution_only: true
+seed_list: [1, 7, 11, 19, 42, 101, 202]
+n_permutations: 100
+n_bootstrap: 200
+test_size: 0.25
+min_class_count: 5
+max_runtime_minutes: 30
+models:
+  - logistic_regression
+  - elastic_net
+  - random_forest
+  - gradient_boosting
+tasks:
+  - dementia_vs_reference
+  - high_vs_low_ad_neuropathology
+  - apoe_risk_prediction
+  - mixed_pathology_burden
