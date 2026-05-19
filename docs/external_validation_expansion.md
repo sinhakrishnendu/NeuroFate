@@ -434,3 +434,24 @@ Phase 37 extends the PD replication expansion to GSE7621, a substantia nigra bul
 The route uses only GEO series-matrix expression values and platform probe mappings. Raw CEL/CHP files, FASTQ/SRA files, Scanpy, H5AD/AnnData, UMAP, clustering, dense genome-wide converted outputs, and model training remain out of scope.
 
 Claim language remains conservative: GSE7621 can support an independent PD replication candidate only if an axis is directionally consistent and has p/FDR support. It cannot by itself establish clinical utility, diagnostic performance, causality, or a validated shared AD/PD mechanism.
+
+## Phase 38: GSE7621 Direction-Aware PD Replication Interpretation
+
+Phase 38 audits the successful GSE7621 result. The dataset is technically usable: GEO accession sample joins are complete, PD/control labels are available, and NeuroFate axis coverage is strong. The biological result is mixed rather than confirmatory.
+
+The neuronal vulnerability axis is directionally consistent but not significant, so it does not provide statistically supported PD replication of the AD-replicated axis. The synuclein-mitochondrial axis is statistically strong but opposite in direction, which supports only a candidate PD-divergent interpretation after probe and direction audit.
+
+This improves the biological story by identifying a possible PD-specific divergence, but it does not validate a shared AD/PD mechanism.
+
+## Phase 39: Manuscript-Readiness Consolidation
+
+Phase 39 consolidates the external-validation evidence for manuscript writing. The feasible target is eLife, with NAR Genomics and Bioinformatics as backup. The manuscript should present NeuroFate-Axis as an endpoint-locked donor/sample-level framework, not as a clinical or diagnostic system.
+
+The external-validation story is:
+
+- GSE174367 provides nominal independent AD replication of neuronal vulnerability.
+- GSE243639 provides preliminary PD signal.
+- GSE184950 and GSE20141 show weak or direction-only PD replication.
+- GSE7621 shows candidate PD-divergent synuclein--mitochondrial remodeling.
+
+The correct conclusion is conservative: AD evidence is strongest, PD evidence is biologically informative but unresolved, and shared AD/PD mechanism claims remain unsupported.

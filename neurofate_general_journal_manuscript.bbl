@@ -1,0 +1,182 @@
+\begin{thebibliography}{20}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[{Allen Institute and SEA-AD Consortium}(2024)]{seaad_resource}
+{Allen Institute and SEA-AD Consortium}.
+\newblock Seattle alzheimer's disease brain cell atlas and sea-ad resources,
+  2024.
+\newblock External single-nucleus resource used through manual acquisition
+  only.
+
+\bibitem[Benjamini and Hochberg(1995)]{benjamini1995controlling}
+Yoav Benjamini and Yosef Hochberg.
+\newblock Controlling the false discovery rate: a practical and powerful
+  approach to multiple testing.
+\newblock \emph{Journal of the Royal Statistical Society: Series B},
+  57\penalty0 (1):\penalty0 289--300, 1995.
+
+\bibitem[Collins et~al.(2015)Collins, Reitsma, Altman, and
+  Moons]{collins2015tripod}
+Gary~S. Collins, Johannes~B. Reitsma, Douglas~G. Altman, and Karel G.~M. Moons.
+\newblock Transparent reporting of a multivariable prediction model for
+  individual prognosis or diagnosis (tripod): the tripod statement.
+\newblock \emph{Annals of Internal Medicine}, 162\penalty0 (1):\penalty0
+  55--63, 2015.
+
+\bibitem[De~Strooper and Karran(2016)]{destrooper2016cellular}
+Bart De~Strooper and Eric Karran.
+\newblock The cellular phase of alzheimer's disease.
+\newblock \emph{Cell}, 164\penalty0 (4):\penalty0 603--615, 2016.
+
+\bibitem[Exner et~al.(2012)Exner, Lutz, Haass, and
+  Winklhofer]{exner2012mitochondrial}
+Nicole Exner, Alexander~K. Lutz, Christian Haass, and Konstanze~F. Winklhofer.
+\newblock Mitochondrial dysfunction in parkinson's disease: molecular
+  mechanisms and pathophysiological consequences.
+\newblock \emph{The EMBO Journal}, 31\penalty0 (14):\penalty0 3038--3062, 2012.
+
+\bibitem[{Gene Expression Omnibus}(2007)]{geo_gse7621}
+{Gene Expression Omnibus}.
+\newblock Gse7621: Substantia nigra expression profiling in parkinson disease
+  and control postmortem brain, 2007.
+\newblock External GEO dataset used as a sample-level Parkinson disease
+  substantia nigra replication resource.
+
+\bibitem[{Gene Expression Omnibus}(2010)]{geo_gse20141}
+{Gene Expression Omnibus}.
+\newblock Gse20141: Postmortem brain expression analysis of parkinson disease
+  substantia nigra pars compacta, 2010.
+\newblock External GEO dataset used as a sample-level Parkinson disease SNpc
+  replication resource.
+
+\bibitem[{Gene Expression Omnibus}(2021)]{geo_gse174367}
+{Gene Expression Omnibus}.
+\newblock Gse174367: Human alzheimer disease postmortem multi-omics dataset
+  with bulk rna and single-nucleus resources, 2021.
+\newblock External GEO dataset used as an independent Alzheimer disease bulk
+  RNA replication resource.
+
+\bibitem[{Gene Expression Omnibus}(2022)]{geo_gse184950}
+{Gene Expression Omnibus}.
+\newblock Gse184950: Single-cell transcriptomics of human substantia nigra in
+  parkinson disease, 2022.
+\newblock External GEO dataset used as an independent Parkinson disease
+  replication resource.
+
+\bibitem[{Gene Expression Omnibus}(2024)]{geo_gse243639}
+{Gene Expression Omnibus}.
+\newblock Gse243639: Human substantia nigra pars compacta single-nucleus
+  rna-seq parkinson disease cohort, 2024.
+\newblock External GEO dataset used as a manual Parkinson disease extension
+  resource.
+
+\bibitem[Hardy and Selkoe(2002)]{hardy2002amyloid}
+John Hardy and Dennis~J. Selkoe.
+\newblock The amyloid hypothesis of alzheimer's disease: progress and problems
+  on the road to therapeutics.
+\newblock \emph{Science}, 297\penalty0 (5580):\penalty0 353--356, 2002.
+
+\bibitem[Heneka et~al.(2015)Heneka, Carson, El~Khoury, Landreth, Brosseron,
+  Feinstein, Jacobs, Wyss-Coray, Vitorica, Ransohoff, Herrup, Frautschy,
+  Finsen, Brown, Verkhratsky, Yamanaka, Koistinaho, Latz, Halle, Petzold, Town,
+  Morgan, Shinohara, Perry, Holmes, Bazan, Brooks, Hunot, Joseph, Deigendesch,
+  Garaschuk, Boddeke, Dinarello, Breitner, Cole, Golenbock, and
+  Kummer]{heneka2015neuroinflammation}
+Michael~T. Heneka, Monica~J. Carson, Joseph El~Khoury, Gary~E. Landreth,
+  Frederic Brosseron, Douglas~L. Feinstein, Andreas~H. Jacobs, Tony Wyss-Coray,
+  Javier Vitorica, Richard~M. Ransohoff, Karl Herrup, Sally~A. Frautschy, Bente
+  Finsen, Guy~C. Brown, Alexei Verkhratsky, Koji Yamanaka, Jari Koistinaho,
+  Eicke Latz, Annett Halle, Gabor~C. Petzold, Terrence Town, David Morgan,
+  Mari~L. Shinohara, V.~Hugh Perry, Clive Holmes, Nicolas~G. Bazan, David~J.
+  Brooks, Stephane Hunot, Bruce Joseph, Nicolai Deigendesch, Olga Garaschuk,
+  Erik Boddeke, Charles~A. Dinarello, John C.~S. Breitner, Greg~M. Cole,
+  Douglas~T. Golenbock, and Markus~P. Kummer.
+\newblock Neuroinflammation in alzheimer's disease.
+\newblock \emph{The Lancet Neurology}, 14\penalty0 (4):\penalty0 388--405,
+  2015.
+
+\bibitem[Kamath et~al.(2022)Kamath, Abdulraouf, Burris, Langlieb, Gazestani,
+  Nadaf, Balderrama, Vanderburg, and Macosko]{kamath2022dopamine}
+Tushar Kamath, Alice Abdulraouf, Sarah~J. Burris, Jessica Langlieb, Vahab
+  Gazestani, Naeem~M. Nadaf, Karol Balderrama, Charles Vanderburg, and Evan~Z.
+  Macosko.
+\newblock Single-cell genomic profiling of human dopamine neurons identifies a
+  population that selectively degenerates in parkinson's disease.
+\newblock \emph{Nature Neuroscience}, 25:\penalty0 588--595, 2022.
+
+\bibitem[Markowetz(2015)]{markowetz2015five}
+Florian Markowetz.
+\newblock Five selfish reasons to work reproducibly.
+\newblock \emph{Genome Biology}, 16:\penalty0 274, 2015.
+
+\bibitem[Mathys et~al.(2019)Mathys, Davila-Velderrain, Peng, Gao, Mohammadi,
+  Young, Menon, He, Abdurrob, Jiang, Martorell, Ransohoff, Hafler, Bennett,
+  Kellis, and Tsai]{mathys2019singlecell}
+Hansruedi Mathys, Jose Davila-Velderrain, Zhuyu Peng, Fan Gao, Sepideh
+  Mohammadi, Jennie~Z. Young, Madhvi Menon, Liang He, Fatema Abdurrob, Xueqiao
+  Jiang, Anthony~J. Martorell, Julia Ransohoff, Brian~P. Hafler, David~A.
+  Bennett, Manolis Kellis, and Li-Huei Tsai.
+\newblock Single-cell transcriptomic analysis of alzheimer's disease.
+\newblock \emph{Nature}, 570:\penalty0 332--337, 2019.
+
+\bibitem[Polymeropoulos et~al.(1997)Polymeropoulos, Lavedan, Leroy, Ide,
+  Dehejia, Dutra, Pike, Root, Rubenstein, Boyer, Stenroos, Chandrasekharappa,
+  Athanassiadou, Papapetropoulos, Johnson, Lazzarini, Duvoisin, Di~Iorio,
+  Golbe, and Nussbaum]{polymeropoulos1997mutation}
+Mihael~H. Polymeropoulos, Christian Lavedan, Eric Leroy, Stefania~E. Ide,
+  Anindita Dehejia, Amalia Dutra, Barbara Pike, Heather Root, Jay Rubenstein,
+  Richard Boyer, Edward~S. Stenroos, S.~C. Chandrasekharappa, Aikaterini
+  Athanassiadou, Theodore Papapetropoulos, W.~G. Johnson, A.~M. Lazzarini,
+  R.~C. Duvoisin, G.~Di~Iorio, L.~I. Golbe, and Robert~L. Nussbaum.
+\newblock Mutation in the alpha-synuclein gene identified in families with
+  parkinson's disease.
+\newblock \emph{Science}, 276\penalty0 (5321):\penalty0 2045--2047, 1997.
+
+\bibitem[Spillantini et~al.(1997)Spillantini, Schmidt, Lee, Trojanowski, Jakes,
+  and Goedert]{spillantini1997alphasynuclein}
+Maria~G. Spillantini, Marc~L. Schmidt, Virginia M.-Y. Lee, John~Q. Trojanowski,
+  Ross Jakes, and Michel Goedert.
+\newblock Alpha-synuclein in lewy bodies.
+\newblock \emph{Nature}, 388\penalty0 (6645):\penalty0 839--840, 1997.
+
+\bibitem[Varma and Simon(2006)]{varma2006bias}
+Sudhir Varma and Richard Simon.
+\newblock Bias in error estimation when using cross-validation for model
+  selection.
+\newblock \emph{BMC Bioinformatics}, 7:\penalty0 91, 2006.
+
+\bibitem[Varoquaux(2018)]{varoquaux2018crossvalidation}
+Ga{\"e}l Varoquaux.
+\newblock Cross-validation failure: small sample sizes lead to large error
+  bars.
+\newblock \emph{NeuroImage}, 180:\penalty0 68--77, 2018.
+
+\bibitem[Wilkinson et~al.(2016)Wilkinson, Dumontier, Aalbersberg, Appleton,
+  Axton, Baak, Blomberg, Boiten, da~Silva~Santos, Bourne, Bouwman, Brookes,
+  Clark, Crosas, Dillo, Dumon, Edmunds, Evelo, Finkers, Gonzalez-Beltran, Gray,
+  Groth, Goble, Grethe, Heringa, 't~Hoen, Hooft, Kuhn, Kok, Kok, Lusher,
+  Martone, Mons, Packer, Persson, Rocca-Serra, Roos, van Schaik, Sansone,
+  Schultes, Sengstag, Slater, Strawn, Swertz, Thompson, van~der Lei, van
+  Mulligen, Velterop, Waagmeester, Wittenburg, Wolstencroft, Zhao, and
+  Mons]{wilkinson2016fair}
+Mark~D. Wilkinson, Michel Dumontier, I.~J. Aalbersberg, Gabrielle Appleton,
+  Myles Axton, Arie Baak, Niklas Blomberg, Jan-Willem Boiten, Luiz~Bonino
+  da~Silva~Santos, Philip~E. Bourne, Jildau Bouwman, Anthony~J. Brookes, Tim
+  Clark, Merc{\`e} Crosas, Ingrid Dillo, Olivier Dumon, Scott Edmunds, Chris~T.
+  Evelo, Richard Finkers, Alejandra Gonzalez-Beltran, Alasdair J.~G. Gray, Paul
+  Groth, Carole Goble, Jeffrey~S. Grethe, Jaap Heringa, Peter A.~C. 't~Hoen,
+  Rob Hooft, Tobias Kuhn, Ruben Kok, Joost Kok, Scott~J. Lusher, Maryann~E.
+  Martone, Albert Mons, Abel~L. Packer, Bengt Persson, Philippe Rocca-Serra,
+  Marco Roos, Rene van Schaik, Susanna-Assunta Sansone, Erik Schultes, Thierry
+  Sengstag, Ted Slater, George Strawn, Morris~A. Swertz, Mark Thompson, Johan
+  van~der Lei, Erik van Mulligen, Jan Velterop, Andra Waagmeester, Peter
+  Wittenburg, Katherine Wolstencroft, Jun Zhao, and Barend Mons.
+\newblock The fair guiding principles for scientific data management and
+  stewardship.
+\newblock \emph{Scientific Data}, 3:\penalty0 160018, 2016.
+
+\end{thebibliography}

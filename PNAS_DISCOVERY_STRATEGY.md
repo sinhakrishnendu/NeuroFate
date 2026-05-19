@@ -156,3 +156,15 @@ The key scientific question is whether the AD-replicated neuronal vulnerability 
 Phase 37 moves from the technically successful but statistically weak GSE20141 result to the next PD cohort, `GSE7621`. The cohort is used only through sample-level GEO series-matrix expression values and conservative platform probe mappings.
 
 The decision rule does not change: an independent PD replication result can improve the PNAS bottleneck only when an axis is directionally consistent and has `p < 0.05` or `FDR < 0.1`. Direction-only support remains preliminary. A shared AD/PD axis remains a candidate at most unless the PD-supported axis aligns with an AD-supported or AD-replicated axis.
+
+## Phase 38 GSE7621 Direction-Aware Interpretation
+
+GSE7621 is technically valid and biologically informative, but it does not close the shared-axis PNAS bottleneck. The AD-replicated neuronal vulnerability axis is directionally consistent but statistically weak in GSE7621. In contrast, the synuclein-mitochondrial axis is statistically strong but opposite in direction.
+
+This creates a candidate PD-divergent interpretation: PD may show a synuclein/mitochondrial axis structure that is not simply the same direction as the AD endpoint-locked pattern. This is potentially interesting systems neurobiology, but it requires a second PD cohort and probe/platform audit before it can anchor a strong claim.
+
+## Phase 39 Manuscript-Readiness Consolidation
+
+The current evidence is better suited to eLife than to a high-certainty shared-mechanism submission. The eLife framing should emphasize endpoint-locked donor/sample-level systems biology, AD-replicated neuronal vulnerability, preliminary PD convergence, and PD-divergent synuclein--mitochondrial remodeling.
+
+PNAS remains premature because the shared AD/PD claim is unresolved. A future PNAS-level version would require stronger independent PD replication that either supports the AD-replicated neuronal axis or confirms the PD-divergent synuclein--mitochondrial axis across additional cohorts.

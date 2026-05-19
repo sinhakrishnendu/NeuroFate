@@ -1635,3 +1635,29 @@ The Phase 37 route:
 - tests endpoint-locked PD versus Control axis replication conservatively.
 
 No clinical, diagnostic, causal, or validated shared-mechanism claims are allowed. Direction-only PD evidence remains preliminary, and the shared AD/PD axis claim remains blocked unless statistically supported PD replication aligns with an AD-supported axis.
+
+## Phase 38: GSE7621 Direction-Aware PD Replication Interpretation
+
+Phase 38 consolidates the successful GSE7621 run. The cohort is technically valid for sample-level NeuroFate-Axis replication: all expression samples match metadata by GEO accession, PD/control labels are complete, and all 10 axes have mapped gene support.
+
+The interpretation is deliberately direction-aware:
+
+- `neuronal_vulnerability_axis` remains directionally consistent with the AD-replicated direction but is not statistically supported in GSE7621.
+- `synuclein_mitochondrial_axis` is statistically strong in GSE7621 but opposite in direction to the current reference.
+- The synuclein-mitochondrial result is therefore a candidate PD-divergent signal, not shared AD/PD mechanism validation.
+
+PNAS readiness gains biological nuance, but the definitive shared-axis bottleneck remains unresolved.
+
+## Phase 39: Manuscript-Readiness Consolidation
+
+Phase 39 reframes NeuroFate-Axis for a realistic eLife-style computational systems-biology manuscript. The recommended primary target is eLife, with NAR Genomics and Bioinformatics as backup.
+
+The manuscript claim is conservative: NeuroFate-Axis is an endpoint-locked, donor/sample-level framework that identifies reproducible neurodegeneration axes. The strongest evidence supports an AD-replicated neuronal vulnerability axis. PD cohorts show preliminary convergence and a candidate PD-divergent synuclein--mitochondrial axis, not a validated shared AD/PD mechanism.
+
+The eLife manuscript is prepared in the existing template copy:
+
+```bash
+manuscript/neurofate_elife_manuscript.tex
+```
+
+PNAS remains aspirational until stronger independent PD replication resolves whether the current PD-divergent synuclein--mitochondrial result generalizes.

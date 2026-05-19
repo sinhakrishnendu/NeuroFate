@@ -34,6 +34,7 @@ SUMMARY_COLUMNS = [
     "phase34_best_pd_fdr",
     "phase34_best_pd_label",
     "phase34_best_pd_direction_consistency",
+    "phase34_best_pd_divergence_status",
     "pd_gse243639_support",
     "crosscohort_evidence_class",
     "safe_claim",
@@ -47,8 +48,9 @@ CLASS_RANK = {
     "strong_ad_axis_without_external_replication": 1,
     "preliminary_shared_ad_pd_axis_candidate": 2,
     "pd_preliminary_only": 3,
-    "inconclusive_axis": 4,
-    "insufficient_data": 5,
+    "pd_divergent_axis_candidate": 4,
+    "inconclusive_axis": 5,
+    "insufficient_data": 6,
 }
 
 
@@ -153,6 +155,7 @@ def classify_axis(
     phase34_effect = to_float(phase34_pd.get("effect_size") if phase34_pd else None)
     phase34_p = to_float(phase34_pd.get("pvalue") if phase34_pd else None, 1.0)
     phase34_fdr = to_float(phase34_pd.get("fdr") if phase34_pd else None, 1.0)
+    phase34_label = phase34_pd.get("evidence_label", "") if phase34_pd else ""
     ad_consistent = sign(sea_effect) == sign(ad_effect) and sign(sea_effect) != 0
     pd_consistent = bool(pd_rep) and pd_rep.get("directional_consistency") == "consistent"
     pd_axis_consistent = sign(sea_effect) == sign(pd_axis_effect) and sign(sea_effect) != 0
@@ -164,6 +167,7 @@ def classify_axis(
     pd_axis_preliminary = pd_axis_consistent and (pd_axis_p < 0.25 or pd_axis_empirical < 0.05)
     pd_axis_supported = pd_axis_consistent and (pd_axis_p < 0.05 or pd_axis_fdr < 0.10)
     phase34_pd_supported = phase34_consistent and (phase34_p < 0.05 or phase34_fdr < 0.10)
+    phase34_pd_divergent = phase34_label == "opposite_direction" and (phase34_p < 0.05 or phase34_fdr < 0.10)
     if sea_supported and ad_nominal:
         klass = "strong_ad_axis_with_nominal_external_replication"
         safe = (
@@ -194,12 +198,20 @@ def classify_axis(
             "with exploratory PD convergence, not as a shared mechanism."
         )
         next_step = "Seek statistically supported independent PD axis replication."
+    if phase34_pd_divergent:
+        klass = "pd_divergent_axis_candidate"
+        safe = (
+            f"{axis} has statistically supported opposite-direction PD evidence in a Phase 34/37 cohort. "
+            "Describe this as a candidate PD-divergent axis requiring direction/probe audit and independent confirmation, "
+            "not as shared AD/PD replication."
+        )
+        next_step = "Validate the opposite-direction PD signal in another PD cohort and audit platform/probe behavior."
     if klass == "strong_ad_axis_with_nominal_external_replication" and phase34_pd_supported:
         klass = "preliminary_shared_ad_pd_axis_candidate"
         safe = (
             f"{axis} has endpoint-locked SEA-AD support, nominal independent AD replication, "
             "and statistically supported Phase 34 PD replication. Describe it as a replicated candidate axis "
-            "requiring additional disease cohorts, not as a definitive shared mechanism."
+            "requiring additional disease cohorts, not as final shared-mechanism evidence."
         )
         next_step = "Add another independent PD cohort and pathway-level validation."
     elif klass == "strong_ad_axis_with_nominal_external_replication" and pd_stat_supported and ad_fdr_supported:
@@ -268,6 +280,12 @@ def build_summary(
                 "phase34_best_pd_fdr": phase34_row.get("fdr", ""),
                 "phase34_best_pd_label": phase34_row.get("evidence_label", ""),
                 "phase34_best_pd_direction_consistency": phase34_row.get("phase34_direction_consistency", ""),
+                "phase34_best_pd_divergence_status": (
+                    "statistically_supported_pd_divergence_candidate"
+                    if phase34_row.get("evidence_label") == "opposite_direction"
+                    and (to_float(phase34_row.get("pvalue"), 1.0) < 0.05 or to_float(phase34_row.get("fdr"), 1.0) < 0.1)
+                    else ""
+                ),
                 "pd_gse243639_support": pd_support,
                 "crosscohort_evidence_class": klass,
                 "safe_claim": safe,

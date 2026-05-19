@@ -16,6 +16,7 @@ CRITERIA = [
     ("matched_random_controls", "Endpoint-matched random-axis controls"),
     ("independent_ad_replication", "At least one independent AD replication cohort"),
     ("independent_pd_replication", "At least one independent PD replication cohort"),
+    ("pd_divergent_axis_candidate", "Direction-audited statistically supported opposite-direction PD axis candidate"),
     ("gse184950_series_metadata_parsed", "Phase 25 GSE184950 full series-matrix metadata parsed"),
     ("gse184950_archive_reconciled", "Phase 25 GSE184950 RAW archive inventory reconciled with series manifest"),
     ("gse184950_processed_matrices_available", "Phase 25 GSE184950 processed matrix availability established"),
@@ -71,6 +72,26 @@ def phase33_pd_statistical_support() -> bool:
         rows = read_tsv(path)
         if any(row.get("evidence_label") == "statistically_supported_pd_replication" for row in rows):
             return True
+    return False
+
+
+def phase34_pd_divergence_candidate() -> bool:
+    for path in [*phase33_pd_paths(), *phase34_pd_paths()]:
+        for row in read_tsv(path):
+            if row.get("evidence_label") != "opposite_direction":
+                continue
+            try:
+                pvalue = float(row.get("pvalue", "1") or 1)
+                fdr = float(row.get("fdr", "1") or 1)
+            except ValueError:
+                continue
+            if pvalue < 0.05 or fdr < 0.1:
+                return True
+    if exists(Path("results/tables/phase38_gse7621_axis_direction_probe_audit.tsv")):
+        return any(
+            row.get("phase38_direction_flag") == "statistically_significant_opposite_direction"
+            for row in read_tsv(Path("results/tables/phase38_gse7621_axis_direction_probe_audit.tsv"))
+        )
     return False
 
 
@@ -161,6 +182,10 @@ def status_for(criterion: str) -> tuple[str, str]:
             *phase33_pd_paths(),
             *phase34_pd_paths(),
         ],
+        "pd_divergent_axis_candidate": [
+            Path("results/tables/phase38_gse7621_axis_direction_probe_audit.tsv"),
+            *phase34_pd_paths(),
+        ],
         "gse184950_series_metadata_parsed": [Path("results/tables/phase25_gse184950_series_sample_metadata.tsv")],
         "gse184950_archive_reconciled": [
             Path("results/tables/phase26_gse184950_nested_archive_inventory.tsv"),
@@ -192,10 +217,16 @@ def status_for(criterion: str) -> tuple[str, str]:
     if criterion == "independent_pd_replication":
         if gse184950_statistical_support() or phase33_pd_statistical_support():
             return "statistically_supported", ";".join(str(path) for path in paths)
+        if phase34_pd_divergence_candidate():
+            return "mixed_pd_evidence", ";".join(str(path) for path in paths)
         if phase33_pd_available():
             return "available_but_preliminary", ";".join(str(path) for path in paths)
         if exists(Path("results/tables/phase27_gse184950_axis_replication_statistics_clean.tsv")):
             return "available_but_preliminary", ";".join(str(path) for path in paths)
+    if criterion == "pd_divergent_axis_candidate":
+        if phase34_pd_divergence_candidate():
+            return "present", ";".join(str(path) for path in paths)
+        return "missing_or_pending", ";".join(str(path) for path in paths)
     if criterion == "gse184950_processed_matrices_available":
         count = gse184950_complete_processed_count()
         if count >= 34:
@@ -214,6 +245,8 @@ def status_for(criterion: str) -> tuple[str, str]:
             return "preliminary_not_definitive", "results/tables/phase32_crosscohort_axis_evidence_summary.tsv"
         return "not_ready", "results/tables/phase32_crosscohort_axis_evidence_summary.tsv"
     if criterion == "pnas_biological_claim":
+        if phase34_pd_divergence_candidate():
+            return "promising_but_requires_pd_resolution", "results/tables/phase32_crosscohort_axis_evidence_summary.tsv"
         if phase32_nominal_ad_replication() and exists(Path("results/tables/phase27_gse184950_axis_replication_statistics_clean.tsv")):
             return "promising_but_not_ready", "results/tables/phase32_crosscohort_axis_evidence_summary.tsv"
         return "not_ready", "results/tables/phase32_crosscohort_axis_evidence_summary.tsv"
@@ -252,7 +285,7 @@ def main() -> int:
     for criterion, description in CRITERIA:
         status, paths = status_for(criterion)
         pnas_gap = "satisfied_or_in_progress"
-        if status in {"missing_or_pending", "available_but_preliminary", "available_but_weak", "partial_processed_matrix_support", "nominally_supported", "not_ready", "promising_but_not_ready"}:
+        if status in {"missing_or_pending", "available_but_preliminary", "available_but_weak", "partial_processed_matrix_support", "nominally_supported", "not_ready", "promising_but_not_ready", "mixed_pd_evidence", "present", "promising_but_requires_pd_resolution"}:
             pnas_gap = "required_before_strong_pnas_claims"
         rows.append(
             {

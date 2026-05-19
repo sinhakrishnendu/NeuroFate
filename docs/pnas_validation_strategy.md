@@ -182,3 +182,15 @@ Phase 37 adds GSE7621 as the next independent PD replication target after GSE201
 6. Test PD versus Control replication with conservative p/FDR rules.
 
 The PNAS bottleneck improves only if GSE7621 or another independent PD cohort shows directionally consistent statistical support. Direction-only support remains preliminary.
+
+## Phase 38: GSE7621 Direction-Aware Interpretation
+
+Phase 38 separates technical success from shared-axis evidence. GSE7621 passes sample-matching and axis-coverage checks, but its statistically strongest signal is an opposite-direction synuclein-mitochondrial axis. That result should be treated as a candidate PD-divergent axis, not a shared AD/PD replication result.
+
+The neuronal vulnerability axis remains directionally consistent but statistically weak in GSE7621. Therefore the PNAS-facing interpretation remains conservative: stronger PD replication is still needed, and the synuclein-mitochondrial result requires independent confirmation and platform/probe review.
+
+## Phase 39: Manuscript-Readiness Consolidation
+
+Phase 39 shifts the near-term writing target from PNAS to eLife. The PNAS ladder remains useful for discipline, but the current evidence supports a realistic systems-biology manuscript rather than a definitive shared-mechanism claim.
+
+The eLife-ready claim is: NeuroFate-Axis identifies endpoint-locked neurodegeneration axes, with strongest support for an AD-replicated neuronal vulnerability axis and additional PD evidence that is preliminary or divergent. PNAS remains a future goal after stronger PD replication.
