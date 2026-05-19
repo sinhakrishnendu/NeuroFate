@@ -4,7 +4,7 @@
 
 NeuroFate is strongest as a reproducible, memory-safe, donor-level neurodegeneration modeling workflow. It integrates metadata-safe single-nucleus processing, targeted sparse gene-panel extraction, donor-level statistical analysis, interpretable machine learning, Apple Silicon MPS support, and reviewer-facing audits.
 
-The current evidence supports internal donor-level modeling claims more strongly than external-validation claims. Mathys 2019 provides preliminary external feasibility after harmonization, but the harmonized Mathys table has six sample-level units, which is not enough for definitive cross-cohort validation.
+The current evidence supports internal donor-level modeling claims more strongly than external-validation claims. Mathys 2019 provides preliminary external feasibility after harmonization, but the harmonized Mathys table has six sample-level units, which is not enough for definitive cross-cohort validation. GSE243639 now provides the strongest PD extension result: Phase 20 achieved complete safe annotation linkage and a preliminary sample-level cell-type-aware PD signal.
 
 ## 2. What NeuroFate Currently Does Well
 
@@ -17,6 +17,8 @@ The current evidence supports internal donor-level modeling claims more strongly
 
 The strongest current computational finding is internal donor-level stratification for dementia/reference-related tasks when Phase 12 repeated benchmarks support it. These findings should be described as internal donor-level evidence, not clinical prediction and not definitive external validation.
 
+For Parkinson disease, the strongest current result is the Phase 20 GSE243639 safe-map cell-type-aware analysis: annotation match rate = 1.0, feature count = 1590, logistic repeated AUROC = 0.72777778, AUPRC = 0.79044444, balanced accuracy = 0.64666667, empirical permutation p-value = 0.10891089, and reliability = `preliminary_pd_internal_signal`. This improves over the Phase 16 global-feature result but remains preliminary because permutation support is not significant at 0.05 and because it is an internal split within one independent PD cohort.
+
 Microglial, astrocyte, neuronal, and neurodegeneration feature groups are useful as structured biological layers, but individual gene or feature claims should remain conservative unless supported by repeated benchmarks, permutation controls, and ablation consistency.
 
 ## 4. Internal Validation Status
@@ -26,6 +28,8 @@ Internal validation is based on donor-level tables and repeated classical-model 
 ## 5. External Validation Status
 
 Mathys 2019 is currently external feasibility evidence only. The sample-level feature table contains six harmonized units, which is useful for testing schema transfer and pipeline behavior but insufficient for strong validation language.
+
+GSE243639 provides an independent PD cohort extension. Phase 20 should be interpreted as preliminary sample-level PD internal signal after successful safe annotation linkage, not as clinical validation, not as a diagnostic classifier, and not as cross-disease validation.
 
 ## 6. Why Mathys Is Preliminary Feasibility, Not Definitive Validation
 
@@ -52,7 +56,7 @@ The MPS model is a real Apple Silicon implementation for small donor-level neura
 
 | Topic | Reviewer Risk | Conservative Response |
 | --- | --- | --- |
-| External validation | High | Describe Mathys as preliminary external feasibility. |
+| External validation | High | Describe Mathys as preliminary external feasibility and Phase 20 GSE243639 as preliminary PD internal signal. |
 | Clinical translation | High | State research software only. |
 | Causality | High | Use association language. |
 | MPS neural model | Medium | Present as small donor-level implementation. |
@@ -62,6 +66,7 @@ The MPS model is a real Apple Silicon implementation for small donor-level neura
 ## 11. Next Validation Needed Before Nature Computational Science Submission
 
 - Add larger independent external cohorts with adequate donor/sample-level units.
+- Replicate the Phase 20 GSE243639 cell-type-aware PD signal in an additional PD cohort.
 - Lock task definitions and leakage-audit rules before final model comparison.
 - Run full Phase 12 repeated benchmarks, permutation controls, and feature ablations.
 - Confirm source and results packages exclude raw data and large private artifacts.
@@ -69,6 +74,6 @@ The MPS model is a real Apple Silicon implementation for small donor-level neura
 
 ## 12. Recommended Manuscript Claim Language
 
-Recommended: “NeuroFate provides a reproducible, memory-safe, donor-level framework for neurodegeneration systems biology and internally benchmarked predictive modeling, with preliminary external feasibility demonstrated on harmonized Mathys 2019 data.”
+Recommended: “NeuroFate provides a reproducible, memory-safe, donor-level framework for neurodegeneration systems biology and internally benchmarked predictive modeling, with preliminary external feasibility demonstrated on harmonized Mathys 2019 data and a preliminary cell-type-aware PD internal signal observed in GSE243639 after safe annotation linkage.”
 
 Avoid stronger language unless future validation supports it.

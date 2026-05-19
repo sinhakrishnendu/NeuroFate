@@ -8,4 +8,4 @@ The SEA-AD workflow is staged:
 4. Donor-level feature aggregation.
 5. Interpretable modeling.
 
-Use `configs/templates/sea_ad_minimal.yaml` as a starting point. Matrix-wide Scanpy workflows are intentionally outside the default path.
+Use `configs/templates/sea_ad_minimal.yaml` as a starting point. Matrix-wide Scanpy-based analysis is intentionally outside the default path.

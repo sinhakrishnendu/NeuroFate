@@ -1,0 +1,163 @@
+Objects:
+[1] "normExpr.reg" "targets"     
+
+Expression dimensions:
+[1] 18849    90
+
+Targets dimensions:
+[1] 90 75
+
+Expression column preview:
+ [1] "Sample-1"   "Sample-10"  "Sample-100" "Sample-101" "Sample-11" 
+ [6] "Sample-12"  "Sample-13"  "Sample-14"  "Sample-16"  "Sample-17" 
+[11] "Sample-19"  "Sample-2"   "Sample-20"  "Sample-21"  "Sample-22" 
+[16] "Sample-23"  "Sample-24"  "Sample-25"  "Sample-26"  "Sample-27" 
+
+Targets columns:
+ [1] "SampleID"                     "RNAIsolation.Group"          
+ [3] "Dissection.Group"             "Sample.ID"                   
+ [5] "Case.Year"                    "Case.Num"                    
+ [7] "Region"                       "Neuropath.Dx.1"              
+ [9] "Neuropath.Dx.2"               "Age"                         
+[11] "Sex"                          "PMI"                         
+[13] "APoE"                         "Clinical.Syndrome"           
+[15] "Tangle.Stage"                 "Plaque.Stage"                
+[17] "Diagnosis"                    "Plaques.Tangles"             
+[19] "Braak...Braak.Stage"          "Dissection.By"               
+[21] "RNA.Isolation.By"             "RIN"                         
+[23] "Library.Group"                "Sequencing.Group"            
+[25] "TOTAL_READS"                  "PF_READS"                    
+[27] "PF_READS_ALIGNED"             "PCT_PF_READS_ALIGNED"        
+[29] "PF_ALIGNED_BASES"             "PF_HQ_ALIGNED_READS"         
+[31] "PF_HQ_ALIGNED_BASES"          "PF_HQ_ALIGNED_Q20_BASES"     
+[33] "PF_MISMATCH_RATE"             "PF_HQ_ERROR_RATE"            
+[35] "PF_INDEL_RATE"                "READS_ALIGNED_IN_PAIRS"      
+[37] "STRAND_BALANCE"               "PCT_CHIMERAS"                
+[39] "PCT_ADAPTER"                  "UNPAIRED_READS_EXAMINED"     
+[41] "UNMAPPED_READS"               "READ_PAIR_DUPLICATES"        
+[43] "READ_PAIR_OPTICAL_DUPLICATES" "PERCENT_DUPLICATION"         
+[45] "ESTIMATED_LIBRARY_SIZE"       "PF_BASES"                    
+[47] "PF_ALIGNED_BASES.1"           "RIBOSOMAL_BASES"             
+[49] "CODING_BASES"                 "UTR_BASES"                   
+[51] "INTRONIC_BASES"               "INTERGENIC_BASES"            
+[53] "CORRECT_STRAND_READS"         "INCORRECT_STRAND_READS"      
+[55] "PCT_RIBOSOMAL_BASES"          "PCT_CODING_BASES"            
+[57] "PCT_UTR_BASES"                "PCT_INTRONIC_BASES"          
+[59] "PCT_INTERGENIC_BASES"         "PCT_MRNA_BASES"              
+[61] "PCT_USABLE_BASES"             "PCT_CORRECT_STRAND_READS"    
+[63] "MEDIAN_CV_COVERAGE"           "MEDIAN_5PRIME_BIAS"          
+[65] "MEDIAN_3PRIME_BIAS"           "MEDIAN_5PRIME_TO_3PRIME_BIAS"
+[67] "TOTAL_CLUSTERS"               "ALIGNED_READS"               
+[69] "AT_DROPOUT"                   "GC_DROPOUT"                  
+[71] "Seq.PC1"                      "Seq.PC2"                     
+[73] "Seq.PC3"                      "Seq.PC4"                     
+[75] "Seq.PC5"                     
+
+Targets first 12 rows, selected columns if present:
+      SampleID RNAIsolation.Group Dissection.Group Sample.ID Region
+1     Sample-1            Group16           Group7         1     FC
+2    Sample-10            Group13          Group13        10     FC
+3   Sample-100             Group5          Group17       100     FC
+4   Sample-101             Group8           Group6       101     FC
+13   Sample-11             Group2          Group17        11     FC
+24   Sample-12            Group15          Group12        12     FC
+34   Sample-13             Group4          Group10        13     FC
+45   Sample-14            Group14           Group9        14     FC
+64   Sample-16            Group16          Group14        16     FC
+75   Sample-17            Group11          Group19        17     FC
+95   Sample-19             Group1           Group7        19     FC
+106   Sample-2            Group13           Group9         2     FC
+                 Neuropath.Dx.1        Neuropath.Dx.2 Diagnosis
+1           Alzheimer's disease                Unused        AD
+2           Alzheimer's disease                Unused        AD
+3   Normal (Mild Braak Changes)                Unused   Control
+4   Normal (Mild Braak Changes)                Unused   Control
+13          Alzheimer's disease                Unused        AD
+24          Alzheimer's disease                Unused        AD
+34          Alzheimer's disease                 Other        AD
+45          Alzheimer's disease Hippocampal Sclerosis        AD
+64          Alzheimer's disease                Unused        AD
+75          Alzheimer's disease                Unused        AD
+95          Alzheimer's disease                Unused        AD
+106         Alzheimer's disease                Unused        AD
+
+Value counts for diagnosis/pathology-like columns:
+
+COLUMN: RNAIsolation.Group 
+
+  Group1  Group10  Group11  Group12  Group13  Group14  Group15  Group16 
+       8        4        4        6        6        6        7        6 
+Group 17  Group18 Group 18   Group2   Group3   Group4   Group5   Group6 
+       3        1        0        3        3        8        6        4 
+  Group7   Group8   Group9 
+       5        7        3 
+
+COLUMN: Dissection.Group 
+
+ Group1 Group10 Group11 Group12 Group13 Group14 Group15 Group16 Group17 Group18 
+      5       4       3       3       4       4       5       3       5       5 
+Group19  Group2 Group20  Group3  Group4  Group5  Group6  Group7  Group8  Group9 
+      5       5       6       3       6       3       4       6       5       6 
+
+COLUMN: Region 
+
+CB FC 
+ 0 90 
+
+COLUMN: Neuropath.Dx.1 
+
+                                   Alzheimer's disease 
+                                                    44 
+                           Normal (Mild Braak Changes) 
+                                                    34 
+Normal (Mild Braak Changes) *Cerebral Arteriosclerosis 
+                                                     0 
+                        Normal (Mild Vascular Changes) 
+                                                     4 
+                        Normal - No Pathology Detected 
+                                                     8 
+
+COLUMN: Neuropath.Dx.2 
+
+                                                                              Acute Cerebral Hypoxia 
+                                                                                                   1 
+                                                                           Cerebral Arteriosclerosis 
+                                                                                                   0 
+                                                                          Diffuse Leukencephalopathy 
+                                                                                                   1 
+                                                                               Hippocampal Sclerosis 
+                                                                                                   8 
+                                              Meningioma - right hemi (frozen tissue from left hemi) 
+                                                                                                   1 
+                                                Meningiom- Left Hemi (frozen tissue from right hemi) 
+                                                                                                   1 
+Metastatic Papillary Adenocarcinoma (located in temporal, occipital, and entorhinal cortex, thalamus 
+                                                                                                   0 
+                                                                                               Other 
+                                                                                                   1 
+                                                                                              Unused 
+                                                                                                  77 
+
+COLUMN: Diagnosis 
+
+     AD Control 
+     44      46 
+
+COLUMN: Braak...Braak.Stage 
+
+   Stage 0    Stage 1    Stage I   Stage II Stage I-II       <NA> 
+         6          2          1          1          1         79 
+
+COLUMN: Library.Group 
+
+ 1  2  3  4  5  6  7  8  9 10 11 13 15 16 17 18 19 20 21 22 23 24 25 
+ 5  4  2  5  4  3  3  4  3  3  2  1  5  7  6  5  5  4  6  9  2  1  1 
+
+COLUMN: Sequencing.Group 
+
+ 1  2 
+47 43 
+
+Sample mapping checks:
+expr colnames vs targets$SampleID overlap: 90 
+expr colnames vs targets$Sample.ID overlap: 0 

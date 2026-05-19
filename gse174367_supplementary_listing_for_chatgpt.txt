@@ -1,0 +1,225 @@
+===== GEO supplementary FTP listing =====
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /geo/series/GSE174nnn/GSE174367/suppl</title>
+ </head>
+ <body>
+<h1>Index of /geo/series/GSE174nnn/GSE174367/suppl</h1>
+<pre>Name                                              Last modified      Size  <hr><a href="/geo/series/GSE174nnn/GSE174367/">Parent Directory</a>                                                       -   
+<a href="GSE174367_bulkRNA_processed.rda.gz">GSE174367_bulkRNA_processed.rda.gz</a>                2021-05-12 21:01   12M  
+<a href="GSE174367_snATAC-seq_cell_meta.csv.gz">GSE174367_snATAC-seq_cell_meta.csv.gz</a>             2021-05-12 21:01  1.0M  
+<a href="GSE174367_snATAC-seq_filtered_peak_bc_matrix.h5">GSE174367_snATAC-seq_filtered_peak_bc_matrix.h5</a>   2019-08-30 22:54  344M  
+<a href="GSE174367_snRNA-seq_cell_meta.csv.gz">GSE174367_snRNA-seq_cell_meta.csv.gz</a>              2021-05-12 21:01  425K  
+<a href="GSE174367_snRNA-seq_filtered_feature_bc_matrix.h5">GSE174367_snRNA-seq_filtered_feature_bc_matrix.h5</a> 2019-06-18 23:11  261M  
+<hr></pre>
+<a href="https://www.hhs.gov/vulnerability-disclosure-policy/index.html">HHS Vulnerability Disclosure</a>
+
+===== Series matrix label summary =====
+cohort_id	label	count
+gse174367_ad_multiomics	ad	118
+gse174367_ad_multiomics	control	112
+
+===== First 80 sample metadata rows =====
+cohort_id	sample_title	geo_accession	source_name	diagnosis	disease_state	condition	brain_region	age	sex	pmi	braak	ad_pathology	supplementary_files	inferred_ad_endpoint
+gse174367_ad_multiomics	Sample-100 (snRNA-seq)	GSM5292838	Control brain	Control			FC	79	M	NA			NONE	control
+gse174367_ad_multiomics	Sample-101 (snRNA-seq)	GSM5292839	Control brain	Control			FC	74	F	7.75			NONE	control
+gse174367_ad_multiomics	Sample-17 (snRNA-seq)	GSM5292840	AD brain	AD			FC	90	F	3.88			NONE	ad
+gse174367_ad_multiomics	Sample-19 (snRNA-seq)	GSM5292841	AD brain	AD			FC	90	F	4.42			NONE	ad
+gse174367_ad_multiomics	Sample-22 (snRNA-seq)	GSM5292842	AD brain	AD			FC	86	M	4.47			NONE	ad
+gse174367_ad_multiomics	Sample-27 (snRNA-seq)	GSM5292843	AD brain	AD			FC	81	M	2.87			NONE	ad
+gse174367_ad_multiomics	Sample-33 (snRNA-seq)	GSM5292844	AD brain	AD			FC	80	M	3.75			NONE	ad
+gse174367_ad_multiomics	Sample-37 (snRNA-seq)	GSM5292845	AD brain	AD			FC	87	F	4.25			NONE	ad
+gse174367_ad_multiomics	Sample-43 (snRNA-seq)	GSM5292846	AD brain	AD			FC	90	F	4.17			NONE	ad
+gse174367_ad_multiomics	Sample-45 (snRNA-seq)	GSM5292847	AD brain	AD			FC	89	F	3.88			NONE	ad
+gse174367_ad_multiomics	Sample-46 (snRNA-seq)	GSM5292848	AD brain	AD			FC	90	M	4.23			NONE	ad
+gse174367_ad_multiomics	Sample-47 (snRNA-seq)	GSM5292849	AD brain	AD			FC	90	M	5			NONE	ad
+gse174367_ad_multiomics	Sample-50 (snRNA-seq)	GSM5292850	AD brain	AD			FC	89	F	4.08			NONE	ad
+gse174367_ad_multiomics	Sample-52 (snRNA-seq)	GSM5292851	Control brain	Control			FC	83	M	1.8			NONE	control
+gse174367_ad_multiomics	Sample-58 (snRNA-seq)	GSM5292852	Control brain	Control			FC	90	M	4			NONE	control
+gse174367_ad_multiomics	Sample-66 (snRNA-seq)	GSM5292853	Control brain	Control			FC	90	F	2.92			NONE	control
+gse174367_ad_multiomics	Sample-82 (snRNA-seq)	GSM5292854	Control brain	Control			FC	79	M	5			NONE	control
+gse174367_ad_multiomics	Sample-90 (snRNA-seq)	GSM5292855	Control brain	Control			FC	79	F	4.25			NONE	control
+gse174367_ad_multiomics	Sample-96 (snRNA-seq)	GSM5292856	Control brain	Control			FC	79	M	7			NONE	control
+gse174367_ad_multiomics	Sample-101 (snATAC-seq)	GSM5292857	Control brain	Control			FC	74	F	7.75			NONE	control
+gse174367_ad_multiomics	Sample-17 (snATAC-seq)	GSM5292858	AD brain	AD			FC	90	F	3.88			NONE	ad
+gse174367_ad_multiomics	Sample-19 (snATAC-seq)	GSM5292859	AD brain	AD			FC	90	F	4.42			NONE	ad
+gse174367_ad_multiomics	Sample-22 (snATAC-seq)	GSM5292860	AD brain	AD			FC	86	M	4.47			NONE	ad
+gse174367_ad_multiomics	Sample-27 (snATAC-seq)	GSM5292861	AD brain	AD			FC	81	M	2.87			NONE	ad
+gse174367_ad_multiomics	Sample-33 (snATAC-seq)	GSM5292862	AD brain	AD			FC	80	M	3.75			NONE	ad
+gse174367_ad_multiomics	Sample-37 (snATAC-seq)	GSM5292863	AD brain	AD			FC	87	F	4.25			NONE	ad
+gse174367_ad_multiomics	Sample-40 (snATAC-seq)	GSM5292864	AD brain	AD			FC	90	M	3.75			NONE	ad
+gse174367_ad_multiomics	Sample-46 (snATAC-seq)	GSM5292865	AD brain	AD			FC	90	M	4.23			NONE	ad
+gse174367_ad_multiomics	Sample-47 (snATAC-seq)	GSM5292866	AD brain	AD			FC	90	M	5			NONE	ad
+gse174367_ad_multiomics	Sample-50 (snATAC-seq)	GSM5292867	AD brain	AD			FC	89	F	4.08			NONE	ad
+gse174367_ad_multiomics	Sample-52 (snATAC-seq)	GSM5292868	Control brain	Control			FC	83	M	1.8			NONE	control
+gse174367_ad_multiomics	Sample-58 (snATAC-seq)	GSM5292869	Control brain	Control			FC	90	M	4			NONE	control
+gse174367_ad_multiomics	Sample-66 (snATAC-seq)	GSM5292870	Control brain	Control			FC	90	F	2.92			NONE	control
+gse174367_ad_multiomics	Sample-82 (snATAC-seq)	GSM5292871	Control brain	Control			FC	79	M	5			NONE	control
+gse174367_ad_multiomics	Sample-90 (snATAC-seq)	GSM5292872	Control brain	Control			FC	79	F	4.25			NONE	control
+gse174367_ad_multiomics	Sample-100 (snATAC-seq)	GSM5292873	Control brain	Control			FC	79	M	NA			NONE	control
+gse174367_ad_multiomics	Sample-43 (snATAC-seq)	GSM5292874	AD brain	AD			FC	90	F	4.17			NONE	ad
+gse174367_ad_multiomics	Sample-45 (snATAC-seq)	GSM5292875	AD brain	AD			FC	89	F	3.88			NONE	ad
+gse174367_ad_multiomics	Sample-96 (snATAC-seq)	GSM5292876	Control brain	Control			FC	79	M	7			NONE	control
+gse174367_ad_multiomics	Sample-1 (Total Bulk RNA-seq)	GSM5292877	AD brain	AD			FC	82	M	3.25			NONE	ad
+gse174367_ad_multiomics	Sample-10 (Total Bulk RNA-seq)	GSM5292878	AD brain	AD			FC	83	M	3.4			NONE	ad
+gse174367_ad_multiomics	Sample-100 (Total Bulk RNA-seq)	GSM5292879	Control brain	Control			FC	79	M	NA			NONE	control
+gse174367_ad_multiomics	Sample-101 (Total Bulk RNA-seq)	GSM5292880	Control brain	Control			FC	74	F	7.75			NONE	control
+gse174367_ad_multiomics	Sample-102 (Total Bulk RNA-seq)	GSM5292881	AD brain	AD			CB	82	M	3.25			NONE	ad
+gse174367_ad_multiomics	Sample-103 (Total Bulk RNA-seq)	GSM5292882	AD brain	AD			CB	84	F	1.82			NONE	ad
+gse174367_ad_multiomics	Sample-104 (Total Bulk RNA-seq)	GSM5292883	AD brain	AD			CB	90	F	3.8			NONE	ad
+gse174367_ad_multiomics	Sample-105 (Total Bulk RNA-seq)	GSM5292884	AD brain	AD			CB	90	M	3			NONE	ad
+gse174367_ad_multiomics	Sample-106 (Total Bulk RNA-seq)	GSM5292885	AD brain	AD			CB	90	F	NA			NONE	ad
+gse174367_ad_multiomics	Sample-107 (Total Bulk RNA-seq)	GSM5292886	AD brain	AD			CB	83	F	2.4			NONE	ad
+gse174367_ad_multiomics	Sample-108 (Total Bulk RNA-seq)	GSM5292887	AD brain	AD			CB	90	F	2.9			NONE	ad
+gse174367_ad_multiomics	Sample-109 (Total Bulk RNA-seq)	GSM5292888	AD brain	AD			CB	82	F	6.3			NONE	ad
+gse174367_ad_multiomics	Sample-11 (Total Bulk RNA-seq)	GSM5292889	AD brain	AD			FC	90	F	3.9			NONE	ad
+gse174367_ad_multiomics	Sample-110 (Total Bulk RNA-seq)	GSM5292890	AD brain	AD			CB	88	M	3			NONE	ad
+gse174367_ad_multiomics	Sample-111 (Total Bulk RNA-seq)	GSM5292891	AD brain	AD			CB	83	M	3.4			NONE	ad
+gse174367_ad_multiomics	Sample-112 (Total Bulk RNA-seq)	GSM5292892	AD brain	AD			CB	90	F	3.9			NONE	ad
+gse174367_ad_multiomics	Sample-113 (Total Bulk RNA-seq)	GSM5292893	AD brain	AD			CB	79	M	3.7			NONE	ad
+gse174367_ad_multiomics	Sample-114 (Total Bulk RNA-seq)	GSM5292894	AD brain	AD			CB	83	M	3.6			NONE	ad
+gse174367_ad_multiomics	Sample-115 (Total Bulk RNA-seq)	GSM5292895	AD brain	AD			CB	83	F	3.8			NONE	ad
+gse174367_ad_multiomics	Sample-116 (Total Bulk RNA-seq)	GSM5292896	AD brain	AD			CB	81	M	3.3			NONE	ad
+gse174367_ad_multiomics	Sample-117 (Total Bulk RNA-seq)	GSM5292897	AD brain	AD			CB	82	M	4.7			NONE	ad
+gse174367_ad_multiomics	Sample-118 (Total Bulk RNA-seq)	GSM5292898	AD brain	AD			CB	90	F	3.88			NONE	ad
+gse174367_ad_multiomics	Sample-119 (Total Bulk RNA-seq)	GSM5292899	AD brain	AD			CB	79	F	5			NONE	ad
+gse174367_ad_multiomics	Sample-12 (Total Bulk RNA-seq)	GSM5292900	AD brain	AD			FC	79	M	3.7			NONE	ad
+gse174367_ad_multiomics	Sample-120 (Total Bulk RNA-seq)	GSM5292901	AD brain	AD			CB	90	F	4.42			NONE	ad
+gse174367_ad_multiomics	Sample-121 (Total Bulk RNA-seq)	GSM5292902	AD brain	AD			CB	90	M	7.8			NONE	ad
+gse174367_ad_multiomics	Sample-122 (Total Bulk RNA-seq)	GSM5292903	AD brain	AD			CB	89	F	3.67			NONE	ad
+gse174367_ad_multiomics	Sample-123 (Total Bulk RNA-seq)	GSM5292904	AD brain	AD			CB	86	M	4.47			NONE	ad
+gse174367_ad_multiomics	Sample-124 (Total Bulk RNA-seq)	GSM5292905	AD brain	AD			CB	84	F	6.67			NONE	ad
+gse174367_ad_multiomics	Sample-125 (Total Bulk RNA-seq)	GSM5292906	AD brain	AD			CB	86	M	4.2			NONE	ad
+gse174367_ad_multiomics	Sample-126 (Total Bulk RNA-seq)	GSM5292907	AD brain	AD			CB	87	M	6.17			NONE	ad
+gse174367_ad_multiomics	Sample-128 (Total Bulk RNA-seq)	GSM5292908	AD brain	AD			CB	81	M	2.87			NONE	ad
+gse174367_ad_multiomics	Sample-129 (Total Bulk RNA-seq)	GSM5292909	AD brain	AD			CB	82	F	5.92			NONE	ad
+gse174367_ad_multiomics	Sample-13 (Total Bulk RNA-seq)	GSM5292910	AD brain	AD			FC	83	M	3.6			NONE	ad
+gse174367_ad_multiomics	Sample-130 (Total Bulk RNA-seq)	GSM5292911	AD brain	AD			CB	90	M	2.67			NONE	ad
+gse174367_ad_multiomics	Sample-131 (Total Bulk RNA-seq)	GSM5292912	AD brain	AD			CB	90	M	3.75			NONE	ad
+gse174367_ad_multiomics	Sample-132 (Total Bulk RNA-seq)	GSM5292913	AD brain	AD			CB	78	M	11.78			NONE	ad
+gse174367_ad_multiomics	Sample-133 (Total Bulk RNA-seq)	GSM5292914	AD brain	AD			CB	89	F	8.3			NONE	ad
+gse174367_ad_multiomics	Sample-134 (Total Bulk RNA-seq)	GSM5292915	AD brain	AD			CB	80	M	3.75			NONE	ad
+gse174367_ad_multiomics	Sample-135 (Total Bulk RNA-seq)	GSM5292916	AD brain	AD			CB	66	M	3.25			NONE	ad
+
+===== First 120 supplementary manifest rows =====
+cohort_id	sample_title	geo_accession	supplementary_file	supplementary_file_name	status
+gse174367_ad_multiomics	Sample-100 (snRNA-seq)	GSM5292838	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-101 (snRNA-seq)	GSM5292839	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-17 (snRNA-seq)	GSM5292840	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-19 (snRNA-seq)	GSM5292841	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-22 (snRNA-seq)	GSM5292842	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-27 (snRNA-seq)	GSM5292843	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-33 (snRNA-seq)	GSM5292844	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-37 (snRNA-seq)	GSM5292845	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-43 (snRNA-seq)	GSM5292846	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-45 (snRNA-seq)	GSM5292847	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-46 (snRNA-seq)	GSM5292848	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-47 (snRNA-seq)	GSM5292849	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-50 (snRNA-seq)	GSM5292850	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-52 (snRNA-seq)	GSM5292851	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-58 (snRNA-seq)	GSM5292852	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-66 (snRNA-seq)	GSM5292853	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-82 (snRNA-seq)	GSM5292854	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-90 (snRNA-seq)	GSM5292855	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-96 (snRNA-seq)	GSM5292856	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-101 (snATAC-seq)	GSM5292857	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-17 (snATAC-seq)	GSM5292858	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-19 (snATAC-seq)	GSM5292859	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-22 (snATAC-seq)	GSM5292860	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-27 (snATAC-seq)	GSM5292861	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-33 (snATAC-seq)	GSM5292862	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-37 (snATAC-seq)	GSM5292863	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-40 (snATAC-seq)	GSM5292864	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-46 (snATAC-seq)	GSM5292865	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-47 (snATAC-seq)	GSM5292866	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-50 (snATAC-seq)	GSM5292867	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-52 (snATAC-seq)	GSM5292868	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-58 (snATAC-seq)	GSM5292869	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-66 (snATAC-seq)	GSM5292870	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-82 (snATAC-seq)	GSM5292871	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-90 (snATAC-seq)	GSM5292872	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-100 (snATAC-seq)	GSM5292873	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-43 (snATAC-seq)	GSM5292874	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-45 (snATAC-seq)	GSM5292875	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-96 (snATAC-seq)	GSM5292876	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-1 (Total Bulk RNA-seq)	GSM5292877	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-10 (Total Bulk RNA-seq)	GSM5292878	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-100 (Total Bulk RNA-seq)	GSM5292879	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-101 (Total Bulk RNA-seq)	GSM5292880	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-102 (Total Bulk RNA-seq)	GSM5292881	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-103 (Total Bulk RNA-seq)	GSM5292882	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-104 (Total Bulk RNA-seq)	GSM5292883	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-105 (Total Bulk RNA-seq)	GSM5292884	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-106 (Total Bulk RNA-seq)	GSM5292885	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-107 (Total Bulk RNA-seq)	GSM5292886	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-108 (Total Bulk RNA-seq)	GSM5292887	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-109 (Total Bulk RNA-seq)	GSM5292888	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-11 (Total Bulk RNA-seq)	GSM5292889	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-110 (Total Bulk RNA-seq)	GSM5292890	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-111 (Total Bulk RNA-seq)	GSM5292891	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-112 (Total Bulk RNA-seq)	GSM5292892	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-113 (Total Bulk RNA-seq)	GSM5292893	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-114 (Total Bulk RNA-seq)	GSM5292894	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-115 (Total Bulk RNA-seq)	GSM5292895	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-116 (Total Bulk RNA-seq)	GSM5292896	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-117 (Total Bulk RNA-seq)	GSM5292897	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-118 (Total Bulk RNA-seq)	GSM5292898	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-119 (Total Bulk RNA-seq)	GSM5292899	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-12 (Total Bulk RNA-seq)	GSM5292900	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-120 (Total Bulk RNA-seq)	GSM5292901	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-121 (Total Bulk RNA-seq)	GSM5292902	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-122 (Total Bulk RNA-seq)	GSM5292903	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-123 (Total Bulk RNA-seq)	GSM5292904	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-124 (Total Bulk RNA-seq)	GSM5292905	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-125 (Total Bulk RNA-seq)	GSM5292906	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-126 (Total Bulk RNA-seq)	GSM5292907	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-128 (Total Bulk RNA-seq)	GSM5292908	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-129 (Total Bulk RNA-seq)	GSM5292909	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-13 (Total Bulk RNA-seq)	GSM5292910	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-130 (Total Bulk RNA-seq)	GSM5292911	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-131 (Total Bulk RNA-seq)	GSM5292912	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-132 (Total Bulk RNA-seq)	GSM5292913	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-133 (Total Bulk RNA-seq)	GSM5292914	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-134 (Total Bulk RNA-seq)	GSM5292915	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-135 (Total Bulk RNA-seq)	GSM5292916	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-136 (Total Bulk RNA-seq)	GSM5292917	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-137 (Total Bulk RNA-seq)	GSM5292918	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-138 (Total Bulk RNA-seq)	GSM5292919	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-139 (Total Bulk RNA-seq)	GSM5292920	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-14 (Total Bulk RNA-seq)	GSM5292921	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-141 (Total Bulk RNA-seq)	GSM5292922	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-142 (Total Bulk RNA-seq)	GSM5292923	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-143 (Total Bulk RNA-seq)	GSM5292924	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-144 (Total Bulk RNA-seq)	GSM5292925	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-145 (Total Bulk RNA-seq)	GSM5292926	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-146 (Total Bulk RNA-seq)	GSM5292927	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-147 (Total Bulk RNA-seq)	GSM5292928	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-148 (Total Bulk RNA-seq)	GSM5292929	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-149 (Total Bulk RNA-seq)	GSM5292930	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-150 (Total Bulk RNA-seq)	GSM5292931	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-151 (Total Bulk RNA-seq)	GSM5292932	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-152 (Total Bulk RNA-seq)	GSM5292933	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-153 (Total Bulk RNA-seq)	GSM5292934	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-154 (Total Bulk RNA-seq)	GSM5292935	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-155 (Total Bulk RNA-seq)	GSM5292936	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-156 (Total Bulk RNA-seq)	GSM5292937	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-158 (Total Bulk RNA-seq)	GSM5292938	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-159 (Total Bulk RNA-seq)	GSM5292939	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-16 (Total Bulk RNA-seq)	GSM5292940	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-160 (Total Bulk RNA-seq)	GSM5292941	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-161 (Total Bulk RNA-seq)	GSM5292942	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-162 (Total Bulk RNA-seq)	GSM5292943	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-163 (Total Bulk RNA-seq)	GSM5292944	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-164 (Total Bulk RNA-seq)	GSM5292945	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-165 (Total Bulk RNA-seq)	GSM5292946	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-166 (Total Bulk RNA-seq)	GSM5292947	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-167 (Total Bulk RNA-seq)	GSM5292948	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-168 (Total Bulk RNA-seq)	GSM5292949	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-169 (Total Bulk RNA-seq)	GSM5292950	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-17 (Total Bulk RNA-seq)	GSM5292951	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-170 (Total Bulk RNA-seq)	GSM5292952	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-171 (Total Bulk RNA-seq)	GSM5292953	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-172 (Total Bulk RNA-seq)	GSM5292954	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-173 (Total Bulk RNA-seq)	GSM5292955	NONE	NONE	declared_in_series_matrix
+gse174367_ad_multiomics	Sample-174 (Total Bulk RNA-seq)	GSM5292956	NONE	NONE	declared_in_series_matrix

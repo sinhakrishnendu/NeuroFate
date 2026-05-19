@@ -2,7 +2,7 @@
 """LIGHTWEIGHT system check for the NeuroFate skeleton.
 
 This script performs import availability checks only. It does not download data,
-open large files, run Scanpy workflows, initialize PyTorch models, or train anything.
+open large files, run Scanpy-based analysis, initialize PyTorch models, or train anything.
 """
 
 from __future__ import annotations

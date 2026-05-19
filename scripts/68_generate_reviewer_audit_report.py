@@ -36,10 +36,37 @@ def artifact_inventory() -> list[str]:
         "results/reports/claim_strength_table.tsv",
         "results/reports/best_supported_claims.tsv",
         "results/reports/no_overclaiming_audit.tsv",
-        "dist/source_release_manifest.tsv",
-        "dist/results_review_manifest.tsv",
+        "results/tables/phase20_gse243639_celltype_validation_metrics.tsv",
+        "release_artifacts/source_release_manifest.tsv",
+        "release_artifacts/results_review_manifest.tsv",
     ]
     return [f"- {path}: {'present' if Path(path).exists() else 'missing'}" for path in paths]
+
+
+def phase20_summary(path: Path) -> str:
+    rows = read_tsv(path)
+    if not rows:
+        return "Phase 20 GSE243639 metrics are missing."
+    row = next(
+        (
+            item
+            for item in rows
+            if item.get("model") == "logistic_regression"
+            and item.get("validation_mode") == "repeated_stratified_split"
+        ),
+        rows[0],
+    )
+    return (
+        "Phase 20 GSE243639 safe-map cell-type-aware result: "
+        f"annotation_match_rate={row.get('annotation_match_rate')}, "
+        f"feature_count={row.get('feature_count')}, "
+        f"AUROC={row.get('auroc')}, "
+        f"AUPRC={row.get('auprc')}, "
+        f"balanced_accuracy={row.get('balanced_accuracy')}, "
+        f"empirical_p={row.get('empirical_permutation_pvalue')}, "
+        f"reliability={row.get('reliability_flag')}. "
+        "This supports preliminary PD internal signal only."
+    )
 
 
 def write_report(output: Path) -> None:
@@ -91,6 +118,7 @@ def write_report(output: Path) -> None:
     lines.extend(
         [
             "- Mathys remains preliminary external feasibility, not definitive external validation.",
+            f"- {phase20_summary(Path('results/tables/phase20_gse243639_celltype_validation_metrics.tsv'))}",
             "",
             "## 8. Software Release Readiness",
             "- Source and results-review package builders are present and exclude raw data by rule.",

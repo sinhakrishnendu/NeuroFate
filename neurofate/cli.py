@@ -86,6 +86,36 @@ WORKFLOWS = {
         "expected": ["configs/benchmark_config.yaml"],
         "hint": "Run benchmark, permutation, ablation, and evidence-classification commands first for complete reports.",
     },
+    "external-triage": {
+        "help": "Triage Phase 15 external validation candidates without internet access.",
+        "command": "python scripts/69_triage_external_validation_candidates.py --registry metadata/phase15_external_validation_candidates.tsv --output results/reports/phase15_external_dataset_triage.tsv --summary results/reports/phase15_external_dataset_priority_summary.md",
+        "expected": ["metadata/phase15_external_validation_candidates.tsv"],
+        "hint": "This is a lightweight registry-only step; it does not download or inspect dataset contents.",
+    },
+    "inspect-external": {
+        "help": "Inventory a manually acquired external cohort directory by filename and size only.",
+        "command": "python scripts/70_inspect_external_dataset_files.py --dataset-id gse243639_pd_snpc --input-dir data/raw/external/gse243639_pd_snpc --output-summary results/reports/phase15_gse243639_pd_snpc_file_inventory.tsv --format-output results/reports/phase15_gse243639_pd_snpc_format_recommendation.tsv --log-file results/logs/70_inspect_external_dataset_files.log",
+        "expected": ["data/raw/external/gse243639_pd_snpc"],
+        "hint": "Manually place external files under data/raw/external/<dataset_id>/, then run the underlying script with the desired --dataset-id and --input-dir.",
+    },
+    "plan-external-extraction": {
+        "help": "Create a manual external sparse-extraction plan; no extraction is executed.",
+        "command": "python scripts/73_prepare_external_sparse_extraction_plan.py --dataset-id gse243639_pd_snpc --format h5ad_csr --input-matrix data/raw/external/gse243639_pd_snpc/COUNTS_OR_CONTAINER_FILE --metadata-file data/raw/external/gse243639_pd_snpc/METADATA_FILE --feature-file data/raw/external/gse243639_pd_snpc/FEATURE_FILE --panel metadata/target_gene_panel_v1.tsv --output-plan results/tables/phase15_gse243639_pd_snpc_sparse_extraction_plan.tsv --manual-script-output results/logs/manual_phase15_gse243639_pd_snpc_extraction_template.sh --log-file results/logs/73_prepare_external_sparse_extraction_plan.log",
+        "expected": ["metadata/target_gene_panel_v1.tsv", "data/raw/external/gse243639_pd_snpc/COUNTS_OR_CONTAINER_FILE"],
+        "hint": "Use the underlying script with real local file paths after manual acquisition and format inspection.",
+    },
+    "validate-multi-external": {
+        "help": "Show or run donor-level multi-external validation from prepared feature tables only.",
+        "command": "python scripts/75_run_multi_external_validation.py --sea-ad-features results/tables/phase5_donor_feature_table.tsv --tables-dir results/tables --reports-dir results/reports --log-file results/logs/75_run_multi_external_validation.log --dry-run",
+        "expected": [],
+        "hint": "Provide --external-feature-table dataset_id=path directly to scripts/75_run_multi_external_validation.py only after donor/sample-level external feature tables exist.",
+    },
+    "external-report": {
+        "help": "Generate the Phase 15 external validation expansion report from existing planning outputs.",
+        "command": "python scripts/77_generate_phase15_external_validation_report.py --output results/reports/phase15_external_validation_report.md",
+        "expected": ["metadata/phase15_external_validation_candidates.tsv"],
+        "hint": "Run `neurofate external-triage --run` first for a complete readiness section.",
+    },
 }
 
 
@@ -189,6 +219,17 @@ def doctor(_: argparse.Namespace) -> int:
         "scripts/61_generate_benchmark_uncertainty_report.py",
         "scripts/62_generate_phase12_benchmark_figures.py",
         "scripts/63_classify_evidence_strength.py",
+        "metadata/phase15_external_validation_candidates.tsv",
+        "docs/external_validation_expansion.md",
+        "scripts/69_triage_external_validation_candidates.py",
+        "scripts/70_inspect_external_dataset_files.py",
+        "scripts/71_inspect_external_metadata_safe.py",
+        "scripts/72_plan_external_target_gene_overlap.py",
+        "scripts/73_prepare_external_sparse_extraction_plan.py",
+        "scripts/74_build_external_feature_table_generic.py",
+        "scripts/75_run_multi_external_validation.py",
+        "scripts/76_generate_phase15_external_validation_figures.py",
+        "scripts/77_generate_phase15_external_validation_report.py",
     ]
     missing = [path for path in required if not (PROJECT_ROOT / path).exists()]
     if missing:

@@ -1,0 +1,7 @@
+endpoint_id	cohort	endpoint_role	source_column	endpoint_type	positive_class	negative_class	ordinal_order	exclude_values	minimum_n	minimum_per_class	allowed_for_cross_disease_comparison	interpretation_note
+sea_ad_cognitive_dementia	sea_ad	primary_ad	label__Cognitive_Status	binary	Dementia	No dementia		Reference;missing;NA	20	10	true	Primary AD endpoint for endpoint-locked AD/PD comparison; excludes reference and missing values.
+sea_ad_ad_pathology_ordinal	sea_ad	secondary_ad_pathology	label__Overall_AD_neuropathological_Change	ordinal			Not AD;Low;Intermediate;High	Reference;missing;NA	20		true	Secondary AD pathology endpoint; ordinal disease-burden comparison only.
+sea_ad_braak_ordinal	sea_ad	tertiary_ad_pathology	label__Braak	ordinal			Braak 0;Braak II;Braak III;Braak IV;Braak V;Braak VI	Reference;missing;NA	20		false	Tertiary AD pathology endpoint; use only when ordinal mapping is clean.
+sea_ad_cerad_ordinal	sea_ad	tertiary_ad_pathology	label__CERAD_score	ordinal			Absent;Sparse;Moderate;Frequent	Reference;missing;NA	20		false	Tertiary AD neuritic plaque endpoint; use only as within-cohort pathology support.
+gse243639_pd_diagnosis	gse243639_pd_snpc	primary_pd	diagnosis	binary	Parkinson's	Control		missing;NA	20	10	true	Primary PD endpoint for endpoint-locked PD comparison.
+gse243639_lewy_neocortical	gse243639_pd_snpc	secondary_pd_pathology	lewy_body_neocortical	binary	1	0		missing;NA;nan	10	2	false	Secondary within-cohort PD pathology endpoint; not used as primary cross-disease comparison.
