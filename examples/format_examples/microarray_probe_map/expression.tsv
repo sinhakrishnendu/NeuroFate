@@ -1,0 +1,6 @@
+ID_REF	S01	S02	S03	S04
+probe_SNCA	0.4	0.5	1.0	1.1
+probe_GFAP	0.2	0.2	0.9	1.0
+probe_NEFL	1.1	1.0	0.6	0.5
+probe_TREM2	0.3	0.4	0.7	0.8
+probe_MBP	1.2	1.1	0.8	0.7

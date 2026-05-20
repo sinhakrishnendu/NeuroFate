@@ -1,24 +1,32 @@
 # NeuroFate
 
-NeuroFate is an Apple-Silicon-ready computational platform for neurodegeneration systems biology. It connects metadata-safe single-nucleus workflows, targeted sparse gene-panel extraction, donor-level statistical biology, interpretable machine learning, Apple Silicon MPS neural modeling, external cohort feasibility checks, and reviewer-aware reporting.
+NeuroFate is command-line, PyPI-ready research software for format-aware transcriptomic neurodegeneration risk scoring and reproducible AD/PD axis analysis. It inspects user expression and metadata tables, standardizes common layouts, locks disease-state endpoints, and converts donor/sample-level data into curated NeuroFate axis scores, research-use risk scores, leakage audits, validation summaries, and reproducible reports.
+
+NeuroFate is intended for research use only. It is not validated for clinical diagnosis, patient-level decision-making, or treatment selection.
 
 ## What NeuroFate Does
 
-- Builds reproducible neurodegeneration feature layers from metadata, sparse gene panels, and donor-level summaries.
-- Supports SEA-AD and Mathys 2019 workflows while preserving room for Parkinson disease, microbiome/metabolite, protein interaction, and evolutionary modules.
-- Produces manuscript-oriented tables, figures, model summaries, reports, reproducibility manifests, and no-overclaiming audits.
-- Provides a guarded CLI so common workflows are discoverable without accidentally running heavy analyses.
+- Inspects CSV/TSV/TXT/GZ expression and metadata tables and infers common schemas.
+- Reads GEO series matrix expression sections directly when
+  `!series_matrix_table_begin` is present, without requiring users to strip the
+  GEO preamble manually.
+- Builds donor/sample-level NeuroFate axis scores from compact expression matrices and metadata.
+- Locks endpoints before disease-state modelling to avoid opportunistic label selection.
+- Produces research-use risk scores, validation summaries, leakage checks, reports, and reproducibility manifests.
+- Provides a guarded CLI for tiny demos, user-supplied ingestion, axis scoring, risk scoring, baseline modelling, external validation, and benchmark reporting.
 
 ## Who Should Use It
 
-NeuroFate is intended for computational biologists, neurogenomics researchers, translational data scientists, and Apple Silicon users who need a reproducible, memory-conscious workflow for neurodegeneration cohort analysis. It is a research platform, not a clinical product.
+NeuroFate is intended for computational biologists, neurogenomics researchers, and translational data scientists who need a reproducible, memory-conscious workflow for transcriptomic neurodegeneration cohort analysis. It is research-use software, not a clinical product.
 
 ## Accepted Data
 
-- SEA-AD H5AD files for metadata-only inspection and carefully bounded sparse target-gene extraction.
-- Mathys 2019 GEO CSV count and covariate files for external feasibility analysis.
-- Donor-level feature tables for classical machine learning and small MPS neural models.
-- TSV registries for datasets, provenance, feature definitions, manuscript modules, gene panels, and validation plans.
+- Donor/sample-level expression matrices in CSV, TSV, TXT, or GZ-compressed text format.
+- GEO series matrix files with embedded expression tables.
+- Gene-by-sample, sample-by-gene, long-format, Ensembl-ID, and probe-by-sample tables.
+- Sample metadata tables with explicit endpoint columns.
+- Optional gene/probe mapping tables for microarray or Ensembl-ID cohorts.
+- NeuroFate axis registries and TSV provenance/validation outputs.
 
 ## Quickstart
 
@@ -40,6 +48,73 @@ conda activate neurofate
 python -m pip install -e .
 neurofate check-system
 neurofate doctor
+```
+
+Run the full public workflow on a compact user dataset:
+
+```bash
+neurofate run \
+  --expression examples/format_examples/genes_by_samples/expression.tsv \
+  --metadata examples/format_examples/genes_by_samples/metadata.tsv \
+  --outdir results/neurofate_run
+```
+
+Real-world GEO-style microarray workflow:
+
+```bash
+neurofate run \
+  --expression GSE20141_series_matrix.txt.gz \
+  --metadata sample_metadata.tsv \
+  --gene-map gpl570_axis_probe_mapping.tsv \
+  --outdir results/neurofate_run \
+  --sample-id-column geo_accession \
+  --endpoint-column label__pd_vs_control \
+  --positive-class 1 \
+  --negative-class 0
+```
+
+Create endpoint aliases for compatibility with validation scripts:
+
+```bash
+neurofate adapt-endpoint \
+  --metadata results/neurofate_run/ingest/standardized_metadata.tsv \
+  --endpoint-column label__endpoint \
+  --task pd_vs_control \
+  --outdir results/neurofate_run/adapted
+```
+
+Or standardize user inputs first:
+
+```bash
+neurofate ingest \
+  --expression expression.tsv.gz \
+  --metadata metadata.tsv \
+  --outdir results/neurofate_ingest \
+  --endpoint-column auto \
+  --positive-class auto \
+  --negative-class auto
+```
+
+Build axis scores from a standardized or compact sample-level matrix:
+
+```bash
+neurofate build-axis-scores \
+  --expression expression.tsv.gz \
+  --metadata metadata.tsv \
+  --axis-registry metadata/neurofate_axis_registry.tsv \
+  --sample-id-column sample_id \
+  --endpoint-column diagnosis \
+  --positive-class AD \
+  --negative-class Control \
+  --outdir results/neurofate_axis
+```
+
+Compute a research-use risk score from axis scores:
+
+```bash
+neurofate score-risk \
+  --axis-scores results/neurofate_axis/axis_scores.tsv \
+  --outdir results/neurofate_axis
 ```
 
 For a venv workflow:
@@ -122,7 +197,16 @@ Use `CITATION.cff` for the NeuroFate software citation and cite each external da
 
 ## Release Status
 
-Current release metadata target: `0.1.0`. This is a research software release candidate focused on reproducibility, safety, and reviewer-facing transparency.
+Current release metadata target: `0.3.0`. This is a full-methods research software release candidate focused on format-aware ingestion, reproducibility, safety, and reviewer-facing transparency.
+
+## Real-World Public CLI Smoke Test
+
+The public `neurofate run` workflow was exercised on downloaded public GEO
+data from `GSE20141`, a GPL570 laser-dissected substantia nigra pars compacta
+PD/control microarray cohort. The run matched 18/18 samples, retained 29/30
+NeuroFate genes, scored 10/10 axes, and generated research-use risk scores for
+all samples. See `docs/real_world_geo_smoke_test_gse20141.md` for commands,
+checksums, outputs, and safety boundaries.
 
 ## PyPI And GitHub Release
 
@@ -1652,7 +1736,7 @@ PNAS readiness gains biological nuance, but the definitive shared-axis bottlenec
 
 Phase 39 reframes NeuroFate-Axis for a realistic eLife-style computational systems-biology manuscript. The recommended primary target is eLife, with NAR Genomics and Bioinformatics as backup.
 
-The manuscript claim is conservative: NeuroFate-Axis is an endpoint-locked, donor/sample-level framework that identifies reproducible neurodegeneration axes. The strongest evidence supports an AD-replicated neuronal vulnerability axis. PD cohorts show preliminary convergence and a candidate PD-divergent synuclein--mitochondrial axis, not a validated shared AD/PD mechanism.
+The manuscript claim is conservative: NeuroFate-Axis is an endpoint-locked, donor/sample-level framework that identifies reproducible neurodegeneration axes. The strongest evidence supports an AD-replicated neuronal vulnerability axis. PD cohorts show preliminary convergence and a candidate PD-divergent synuclein--mitochondrial axis, not a definitive shared AD/PD conclusion.
 
 The eLife manuscript is prepared in the existing template copy:
 

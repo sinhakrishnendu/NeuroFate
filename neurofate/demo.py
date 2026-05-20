@@ -9,6 +9,8 @@ from importlib import resources
 from pathlib import Path
 from typing import Protocol
 
+from neurofate.axis import RESEARCH_USE_NOTICE, score_research_risk
+
 
 class ReadableTextResource(Protocol):
     name: str
@@ -151,16 +153,56 @@ def build_demo_outputs(
         writer.writerow(metrics)
 
     report_path = outdir / "demo_report.md"
+    axis_path = outdir / "axis_scores.tsv"
+    axis_rows: list[dict[str, str]] = []
+    for row in donor_rows:
+        glial = (
+            float(row["mean_APOE"]) + float(row["mean_TREM2"]) + float(row["mean_GFAP"])
+        ) / 3.0
+        neuronal = float(row["mean_SLC17A7"])
+        synuclein = float(row["mean_SNCA"])
+        axis_rows.append(
+            {
+                "sample_id": row["donor_id"],
+                "diagnosis": row["diagnosis"],
+                "label": "1" if row["diagnosis"] == "disease" else "0",
+                "research_use_only": "true",
+                "glial_stress_demo_axis": f"{glial:.6f}",
+                "neuronal_marker_demo_axis": f"{neuronal:.6f}",
+                "synuclein_demo_axis": f"{synuclein:.6f}",
+            }
+        )
+    with axis_path.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=[
+                "sample_id",
+                "diagnosis",
+                "label",
+                "research_use_only",
+                "glial_stress_demo_axis",
+                "neuronal_marker_demo_axis",
+                "synuclein_demo_axis",
+            ],
+            delimiter="\t",
+        )
+        writer.writeheader()
+        writer.writerows(axis_rows)
+    risk_outputs = score_research_risk(axis_path, outdir)
     report_path.write_text(
         "\n".join(
             [
                 "# NeuroFate Tiny Demo Report",
+                "",
+                RESEARCH_USE_NOTICE,
                 "",
                 "This demo used bundled synthetic toy data only.",
                 f"- Pseudo-donors: {len(donor_rows)}",
                 f"- Cell rows: {len(metadata)}",
                 f"- Genes: {len(genes)}",
                 f"- AUROC smoke-test value: {metrics['auroc']}",
+                f"- Axis score table: `{axis_path.name}`",
+                f"- Research risk score table: `{risk_outputs['risk_scores'].name}`",
                 "",
                 "The demo confirms CLI and tabular workflow plumbing; it is not a biological result.",
             ]
@@ -169,5 +211,8 @@ def build_demo_outputs(
         encoding="utf-8",
     )
     print(f"Wrote {feature_path}")
+    print(f"Wrote {axis_path}")
+    print(f"Wrote {risk_outputs['risk_scores']}")
+    print(f"Wrote {risk_outputs['risk_score_report']}")
     print(f"Wrote {metrics_path}")
     print(f"Wrote {report_path}")

@@ -1,0 +1,5 @@
+sample_id	endpoint	label__endpoint	research_use_only
+S01	Control	0	true
+S02	Control	0	true
+S03	AD	1	true
+S04	AD	1	true

@@ -1,0 +1,5 @@
+sample_id	diagnosis	cohort
+S01	Control	tiny_ensembl_ids
+S02	Control	tiny_ensembl_ids
+S03	AD	tiny_ensembl_ids
+S04	AD	tiny_ensembl_ids

@@ -1,0 +1,8 @@
+expression: results/examples/genes_by_samples/ingest/standardized_expression.tsv.gz
+metadata: results/examples/genes_by_samples/ingest/standardized_metadata.tsv
+axis_registry: /Users/krishnendu/Documents/GitHub/NeuroFate/NeuroFate/neurofate/resources/neurofate_axis_registry.tsv
+sample_id_column: sample_id
+endpoint_column: label__endpoint
+positive_class: 1
+negative_class: 0
+research_use_only: NeuroFate is intended for research use only. It is not validated for clinical diagnosis, patient-level decision-making, or treatment selection.

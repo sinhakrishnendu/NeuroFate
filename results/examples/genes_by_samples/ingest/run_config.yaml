@@ -1,0 +1,18 @@
+expression: examples/format_examples/genes_by_samples/expression.tsv
+metadata: examples/format_examples/genes_by_samples/metadata.tsv
+axis_registry: /Users/krishnendu/Documents/GitHub/NeuroFate/NeuroFate/neurofate/resources/neurofate_axis_registry.tsv
+gene_map: ''
+alias_table: /Users/krishnendu/Documents/GitHub/NeuroFate/NeuroFate/neurofate/resources/neurofate_axis_gene_aliases.tsv
+research_use_only: NeuroFate is intended for research use only. It is not validated
+  for clinical diagnosis, patient-level decision-making, or treatment selection.
+sample_id_column: sample_id
+endpoint_column: diagnosis
+positive_class: AD
+negative_class: Control
+metadata_rows: 4
+standardized_metadata_rows: 4
+ambiguous_label_count: 0
+expression_format: genes_rows
+gene_identifier_type: gene_symbol
+retained_axis_gene_count: 5
+retained_axis_genes: GFAP;MBP;NEFL;SNCA;TREM2

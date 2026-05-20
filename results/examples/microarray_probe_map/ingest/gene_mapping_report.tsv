@@ -1,0 +1,6 @@
+input_feature_id	mapped_gene_symbol	retained
+probe_SNCA	SNCA	true
+probe_GFAP	GFAP	true
+probe_NEFL	NEFL	true
+probe_TREM2	TREM2	true
+probe_MBP	MBP	true

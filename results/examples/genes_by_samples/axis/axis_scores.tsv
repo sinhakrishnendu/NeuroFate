@@ -1,0 +1,5 @@
+sample_id	label__endpoint	label	research_use_only	inflammatory_microglial_axis	astrocyte_stress_axis	myelin_oligodendrocyte_axis	neuronal_vulnerability_axis	synuclein_mitochondrial_axis	amyloid_tau_axis	immune_antigen_presentation_axis	vascular_barrier_axis	proteostasis_autophagy_axis	global_neurodegeneration_axis
+S01	0	0	true	0.300000	0.200000	1.200000	1.100000	0.400000				0.400000	0.640000
+S02	0	0	true	0.400000	0.200000	1.100000	1.000000	0.500000				0.500000	0.640000
+S03	1	1	true	0.700000	0.900000	0.800000	0.600000	1.000000				1.000000	0.800000
+S04	1	1	true	0.800000	1.000000	0.700000	0.500000	1.100000				1.100000	0.820000

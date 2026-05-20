@@ -4,14 +4,15 @@ message: "If you use NeuroFate, please cite the software release and the origina
 type: software
 authors:
   - name: NeuroFate contributors
-version: 0.1.0
-date-released: 2026-05-17
-repository-code: "https://github.com/krishnendu/NeuroFate"
-abstract: "Apple-Silicon-ready neurodegeneration systems biology and predictive modeling platform."
+version: 0.3.0
+date-released: 2026-05-20
+repository-code: "https://github.com/sinhakrishnendu/NeuroFate.git"
+abstract: "Command-line research software for format-aware ingestion, endpoint-locked transcriptomic neurodegeneration risk scoring, and axis-based AD/PD cohort analysis."
 keywords:
   - neurodegeneration
-  - single-nucleus RNA-seq
+  - transcriptomics
+  - command-line software
   - Alzheimer disease
   - Parkinson disease
-  - systems biology
+  - risk scoring
 license: MIT

@@ -1,0 +1,5 @@
+sample_id	diagnosis	cohort
+S01	Control	tiny_probe_map
+S02	Control	tiny_probe_map
+S03	AD	tiny_probe_map
+S04	AD	tiny_probe_map

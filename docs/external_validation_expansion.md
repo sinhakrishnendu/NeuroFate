@@ -433,7 +433,7 @@ Phase 37 extends the PD replication expansion to GSE7621, a substantia nigra bul
 
 The route uses only GEO series-matrix expression values and platform probe mappings. Raw CEL/CHP files, FASTQ/SRA files, Scanpy, H5AD/AnnData, UMAP, clustering, dense genome-wide converted outputs, and model training remain out of scope.
 
-Claim language remains conservative: GSE7621 can support an independent PD replication candidate only if an axis is directionally consistent and has p/FDR support. It cannot by itself establish clinical utility, diagnostic performance, causality, or a validated shared AD/PD mechanism.
+Claim language remains conservative: GSE7621 can support an independent PD replication candidate only if an axis is directionally consistent and has p/FDR support. It cannot by itself establish clinical utility, diagnostic performance, causality, or a definitive shared AD/PD conclusion.
 
 ## Phase 38: GSE7621 Direction-Aware PD Replication Interpretation
 

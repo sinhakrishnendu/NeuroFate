@@ -1,0 +1,2 @@
+platform_id	platform_file	parser_mode	table_begin_line	header_line	header_column_count	probe_column	gene_columns	annotation_rows_seen	retained_probe_rows	mapped_gene_count	mapped_genes	warning
+GPL570	data/raw/end_user_smoke/gpl570/GPL570.annot.gz	geo_platform_table	27	28	21	ID	Gene symbol;Gene ID;GenBank Accession	54675	79	29	AIF1;APOE;APP;B2M;CX3CR1;GFAP;GPNMB;HLA-DRA;IL1B;LAMP5;LRRK2;MAPT;MBP;MOBP;NEFL;NEFM;NFKB1;P2RY12;PINK1;PLP1;PSEN1;PSEN2;PVALB;SLC17A7;SNCA;SST;TNF;TREM2;TYROBP	

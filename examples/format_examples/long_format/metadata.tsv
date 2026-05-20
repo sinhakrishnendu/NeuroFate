@@ -1,0 +1,5 @@
+sample_id	diagnosis	cohort
+S01	Control	tiny_long_format
+S02	Control	tiny_long_format
+S03	AD	tiny_long_format
+S04	AD	tiny_long_format

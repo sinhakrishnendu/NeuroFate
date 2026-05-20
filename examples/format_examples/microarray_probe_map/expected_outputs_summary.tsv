@@ -1,0 +1,5 @@
+output_file	description
+standardized_expression.tsv.gz	Gene-by-sample NeuroFate axis-gene matrix converted from probe IDs
+gene_mapping_report.tsv	Probe-to-symbol mapping audit
+axis_scores.tsv	Sample-level NeuroFate axis scores
+neurofate_risk_scores.tsv	Research-use donor/sample risk scores

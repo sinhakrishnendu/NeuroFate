@@ -1,0 +1,12 @@
+key	value
+sample_id_column	sample_id
+endpoint_column	diagnosis
+positive_class	AD
+negative_class	Control
+metadata_rows	4
+standardized_metadata_rows	4
+ambiguous_label_count	0
+expression_format	long
+gene_identifier_type	gene_symbol
+retained_axis_gene_count	3
+retained_axis_genes	GFAP;NEFL;SNCA

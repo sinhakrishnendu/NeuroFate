@@ -1,0 +1,11 @@
+axis_id	axis_gene_count	mapped_gene_count	mapped_genes	missing_genes	coverage_fraction
+inflammatory_microglial_axis	9	1	TREM2	TYROBP;AIF1;P2RY12;GPNMB;CX3CR1;IL1B;TNF;NFKB1	0.111111
+astrocyte_stress_axis	5	1	GFAP	APOE;NFKB1;TNF;IL1B	0.200000
+myelin_oligodendrocyte_axis	3	1	MBP	MOBP;PLP1	0.333333
+neuronal_vulnerability_axis	6	1	NEFL	LAMP5;SST;PVALB;SLC17A7;NEFM	0.166667
+synuclein_mitochondrial_axis	6	1	SNCA	LRRK2;PINK1;PRKN;MAPT;APOE	0.166667
+amyloid_tau_axis	5	0		APP;PSEN1;PSEN2;MAPT;APOE	0.000000
+immune_antigen_presentation_axis	5	0		B2M;HLA-DRA;AIF1;TYROBP;NFKB1	0.000000
+vascular_barrier_axis	5	0		B2M;CX3CR1;TNF;IL1B;NFKB1	0.000000
+proteostasis_autophagy_axis	7	1	SNCA	GPNMB;PINK1;PRKN;LRRK2;MAPT;APP	0.142857
+global_neurodegeneration_axis	17	5	SNCA;TREM2;GFAP;MBP;NEFL	MAPT;APP;APOE;TYROBP;AIF1;GPNMB;MOBP;PLP1;NEFM;HLA-DRA;PINK1;PRKN	0.294118

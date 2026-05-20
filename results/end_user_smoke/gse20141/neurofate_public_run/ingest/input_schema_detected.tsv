@@ -1,0 +1,12 @@
+key	value
+sample_id_column	geo_accession
+endpoint_column	label__pd_vs_control
+positive_class	1
+negative_class	0
+metadata_rows	18
+standardized_metadata_rows	18
+ambiguous_label_count	0
+expression_format	genes_rows
+gene_identifier_type	gene_symbol
+retained_axis_gene_count	29
+retained_axis_genes	AIF1;APOE;APP;B2M;CX3CR1;GFAP;GPNMB;HLA-DRA;IL1B;LAMP5;LRRK2;MAPT;MBP;MOBP;NEFL;NEFM;NFKB1;P2RY12;PINK1;PLP1;PSEN1;PSEN2;PVALB;SLC17A7;SNCA;SST;TNF;TREM2;TYROBP

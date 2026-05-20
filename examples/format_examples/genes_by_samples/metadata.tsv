@@ -1,0 +1,5 @@
+sample_id	diagnosis	cohort
+S01	Control	tiny_genes_by_samples
+S02	Control	tiny_genes_by_samples
+S03	AD	tiny_genes_by_samples
+S04	AD	tiny_genes_by_samples

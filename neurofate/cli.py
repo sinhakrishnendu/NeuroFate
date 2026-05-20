@@ -1,4 +1,4 @@
-"""Command-line interface for the NeuroFate platform."""
+"""Command-line interface for the NeuroFate research software package."""
 
 from __future__ import annotations
 
@@ -12,6 +12,9 @@ from pathlib import Path
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
+PACKAGE_ROOT = Path(__file__).resolve().parent
+DEFAULT_AXIS_REGISTRY = PACKAGE_ROOT / "resources" / "neurofate_axis_registry.tsv"
+DEFAULT_ALIAS_TABLE = PACKAGE_ROOT / "resources" / "neurofate_axis_gene_aliases.tsv"
 
 WORKFLOWS = {
     "inspect-sea-ad": {
@@ -162,8 +165,9 @@ def check_system(_: argparse.Namespace) -> int:
     print(f"NeuroFate root: {PROJECT_ROOT}")
     print(f"Python: {sys.version.split()[0]}")
     print(f"Platform: {platform.platform()}")
-    for package in ["numpy", "scipy", "sklearn", "h5py", "yaml", "matplotlib", "torch"]:
+    for package in ["numpy", "pandas", "scipy", "sklearn", "yaml", "matplotlib", "torch"]:
         print(f"{package}: {package_status(package)}")
+    print("research_use_only: true")
     return 0
 
 
@@ -266,10 +270,129 @@ def run_demo(_: argparse.Namespace) -> int:
     return 0
 
 
+def build_axis_scores(args: argparse.Namespace) -> int:
+    from neurofate.axis import build_axis_score_tables
+
+    try:
+        outputs = build_axis_score_tables(
+            expression=Path(args.expression),
+            metadata=Path(args.metadata),
+            axis_registry=Path(args.axis_registry),
+            outdir=Path(args.outdir),
+            sample_id_column=args.sample_id_column,
+            endpoint_column=args.endpoint_column,
+            positive_class=args.positive_class,
+            negative_class=args.negative_class,
+            orientation=args.orientation,
+            gene_column=args.gene_column,
+        )
+    except Exception as exc:  # noqa: BLE001 - CLI should print clean user-facing failures.
+        print(f"NeuroFate axis scoring failed: {exc}")
+        return 2
+    for label, path in outputs.items():
+        print(f"Wrote {label}: {path}")
+    return 0
+
+
+def score_risk(args: argparse.Namespace) -> int:
+    from neurofate.axis import RESEARCH_USE_NOTICE, score_research_risk
+
+    try:
+        outputs = score_research_risk(Path(args.axis_scores), Path(args.outdir))
+    except Exception as exc:  # noqa: BLE001 - CLI should print clean user-facing failures.
+        print(f"NeuroFate research risk scoring failed: {exc}")
+        return 2
+    print(RESEARCH_USE_NOTICE)
+    for label, path in outputs.items():
+        print(f"Wrote {label}: {path}")
+    return 0
+
+
+def ingest_data(args: argparse.Namespace) -> int:
+    from neurofate.ingest import IngestConfig, run_ingest
+
+    try:
+        result = run_ingest(
+            IngestConfig(
+                expression=Path(args.expression),
+                metadata=Path(args.metadata),
+                outdir=Path(args.outdir),
+                sample_id_column=args.sample_id_column,
+                endpoint_column=args.endpoint_column,
+                positive_class=args.positive_class,
+                negative_class=args.negative_class,
+                gene_id_column=args.gene_id_column,
+                orientation=args.orientation,
+                gene_map=Path(args.gene_map) if args.gene_map else None,
+                axis_registry=Path(args.axis_registry),
+                alias_table=Path(args.alias_table) if args.alias_table else None,
+                assist=args.assist,
+                min_axis_genes=args.min_axis_genes,
+            )
+        )
+    except Exception as exc:  # noqa: BLE001 - CLI should print clean user-facing failures.
+        print(f"NeuroFate ingest failed: {exc}")
+        return 2
+    for label, path in result.__dict__.items():
+        print(f"Wrote {label}: {path}")
+    return 0
+
+
+def run_full_workflow(args: argparse.Namespace) -> int:
+    from neurofate.ingest import IngestConfig, run_complete_workflow
+
+    try:
+        outputs = run_complete_workflow(
+            IngestConfig(
+                expression=Path(args.expression),
+                metadata=Path(args.metadata),
+                outdir=Path(args.outdir),
+                sample_id_column=args.sample_id_column,
+                endpoint_column=args.endpoint_column,
+                positive_class=args.positive_class,
+                negative_class=args.negative_class,
+                gene_id_column=args.gene_id_column,
+                orientation=args.orientation,
+                gene_map=Path(args.gene_map) if args.gene_map else None,
+                axis_registry=Path(args.axis_registry),
+                alias_table=Path(args.alias_table) if args.alias_table else None,
+                assist=args.assist,
+                min_axis_genes=args.min_axis_genes,
+            )
+        )
+    except Exception as exc:  # noqa: BLE001 - CLI should print clean user-facing failures.
+        print(f"NeuroFate run failed: {exc}")
+        return 2
+    for label, path in outputs.items():
+        print(f"Wrote {label}: {path}")
+    return 0
+
+
+def adapt_endpoint(args: argparse.Namespace) -> int:
+    from neurofate.adapters import adapt_endpoint_metadata
+
+    try:
+        outputs = adapt_endpoint_metadata(
+            metadata=Path(args.metadata),
+            outdir=Path(args.outdir),
+            task=args.task,
+            endpoint_column=args.endpoint_column,
+        )
+    except Exception as exc:  # noqa: BLE001 - CLI should print clean user-facing failures.
+        print(f"NeuroFate endpoint adaptation failed: {exc}")
+        return 2
+    for label, path in outputs.__dict__.items():
+        print(f"Wrote {label}: {path}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         prog="neurofate",
-        description="NeuroFate donor-level neurodegeneration systems biology platform.",
+        description=(
+            "NeuroFate command-line research software for endpoint-locked "
+            "transcriptomic neurodegeneration-axis scoring."
+        ),
     )
     subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -286,6 +409,124 @@ def build_parser() -> argparse.ArgumentParser:
 
     doctor_parser = subparsers.add_parser("doctor", help="Validate core platform file layout.")
     doctor_parser.set_defaults(func=doctor)
+
+    axis_parser = subparsers.add_parser(
+        "build-axis-scores",
+        help="Build donor/sample-level NeuroFate axis scores from a compact expression matrix.",
+    )
+    axis_parser.add_argument("--expression", required=True, help="Sample-level or gene-row TSV/TSV.GZ.")
+    axis_parser.add_argument("--metadata", required=True, help="Sample metadata TSV.")
+    axis_parser.add_argument("--axis-registry", required=True, help="NeuroFate axis registry TSV.")
+    axis_parser.add_argument("--sample-id-column", required=True, help="Sample identifier column.")
+    axis_parser.add_argument("--endpoint-column", required=True, help="Endpoint column in metadata.")
+    axis_parser.add_argument("--positive-class", required=True, help="Positive endpoint class.")
+    axis_parser.add_argument("--negative-class", required=True, help="Negative endpoint class.")
+    axis_parser.add_argument("--outdir", required=True, help="Output directory.")
+    axis_parser.add_argument(
+        "--orientation",
+        choices=["auto", "genes_rows", "samples_rows"],
+        default="auto",
+        help="Expression table orientation.",
+    )
+    axis_parser.add_argument(
+        "--gene-column",
+        default="gene_symbol",
+        help="Gene identifier column for genes_rows orientation.",
+    )
+    axis_parser.set_defaults(func=build_axis_scores)
+
+    risk_parser = subparsers.add_parser(
+        "score-risk",
+        help="Compute a research-use NeuroFate risk score from axis scores.",
+    )
+    risk_parser.add_argument("--axis-scores", required=True, help="Axis score TSV.")
+    risk_parser.add_argument("--outdir", required=True, help="Output directory.")
+    risk_parser.set_defaults(func=score_risk)
+
+    ingest_parser = subparsers.add_parser(
+        "ingest",
+        help="Inspect and standardize user transcriptomic tables for NeuroFate scoring.",
+    )
+    ingest_parser.add_argument("--expression", required=True, help="User expression table: CSV/TSV/TXT/GZ.")
+    ingest_parser.add_argument("--metadata", required=True, help="User sample metadata table: CSV/TSV/TXT/GZ.")
+    ingest_parser.add_argument("--outdir", required=True, help="Output directory for standardized files.")
+    ingest_parser.add_argument("--sample-id-column", default="auto", help="Metadata sample ID column or auto.")
+    ingest_parser.add_argument("--endpoint-column", default="auto", help="Endpoint/group column or auto.")
+    ingest_parser.add_argument("--positive-class", default="auto", help="Positive endpoint class or auto.")
+    ingest_parser.add_argument("--negative-class", default="auto", help="Negative endpoint class or auto.")
+    ingest_parser.add_argument("--gene-id-column", default="auto", help="Gene/probe ID column or auto.")
+    ingest_parser.add_argument(
+        "--orientation",
+        choices=["auto", "genes_rows", "samples_rows", "long"],
+        default="auto",
+        help="Expression orientation.",
+    )
+    ingest_parser.add_argument("--gene-map", default="", help="Optional probe/gene mapping table.")
+    ingest_parser.add_argument(
+        "--axis-registry",
+        default=str(DEFAULT_AXIS_REGISTRY),
+        help="NeuroFate axis registry TSV.",
+    )
+    ingest_parser.add_argument(
+        "--alias-table",
+        default=str(DEFAULT_ALIAS_TABLE),
+        help="Optional gene symbol/Ensembl alias table.",
+    )
+    ingest_parser.add_argument("--assist", action="store_true", help="Record assisted-mode intent for ambiguous runs.")
+    ingest_parser.add_argument("--min-axis-genes", type=int, default=3, help="Minimum retained axis genes.")
+    ingest_parser.set_defaults(func=ingest_data)
+
+    run_parser = subparsers.add_parser(
+        "run",
+        help="Run ingest, axis scoring, research-use risk scoring, and report generation.",
+    )
+    run_parser.add_argument("--expression", required=True, help="User expression table: CSV/TSV/TXT/GZ.")
+    run_parser.add_argument("--metadata", required=True, help="User sample metadata table: CSV/TSV/TXT/GZ.")
+    run_parser.add_argument("--outdir", required=True, help="Output directory for the complete run.")
+    run_parser.add_argument("--sample-id-column", default="auto", help="Metadata sample ID column or auto.")
+    run_parser.add_argument("--endpoint-column", default="auto", help="Endpoint/group column or auto.")
+    run_parser.add_argument("--positive-class", default="auto", help="Positive endpoint class or auto.")
+    run_parser.add_argument("--negative-class", default="auto", help="Negative endpoint class or auto.")
+    run_parser.add_argument("--gene-id-column", default="auto", help="Gene/probe ID column or auto.")
+    run_parser.add_argument(
+        "--orientation",
+        choices=["auto", "genes_rows", "samples_rows", "long"],
+        default="auto",
+        help="Expression orientation.",
+    )
+    run_parser.add_argument("--gene-map", default="", help="Optional probe/gene mapping table.")
+    run_parser.add_argument(
+        "--axis-registry",
+        default=str(DEFAULT_AXIS_REGISTRY),
+        help="NeuroFate axis registry TSV.",
+    )
+    run_parser.add_argument(
+        "--alias-table",
+        default=str(DEFAULT_ALIAS_TABLE),
+        help="Optional gene symbol/Ensembl alias table.",
+    )
+    run_parser.add_argument("--assist", action="store_true", help="Record assisted-mode intent for ambiguous runs.")
+    run_parser.add_argument("--min-axis-genes", type=int, default=3, help="Minimum retained axis genes.")
+    run_parser.set_defaults(func=run_full_workflow)
+
+    adapter_parser = subparsers.add_parser(
+        "adapt-endpoint",
+        help="Create explicit endpoint-label aliases for validation scripts.",
+    )
+    adapter_parser.add_argument("--metadata", required=True, help="Standardized metadata TSV.")
+    adapter_parser.add_argument("--outdir", required=True, help="Output directory for adapted metadata.")
+    adapter_parser.add_argument(
+        "--endpoint-column",
+        default="auto",
+        help="Binary endpoint label column, usually label__endpoint.",
+    )
+    adapter_parser.add_argument(
+        "--task",
+        choices=["generic", "pd_vs_control", "ad_vs_control"],
+        default="generic",
+        help="Task-specific alias set to create.",
+    )
+    adapter_parser.set_defaults(func=adapt_endpoint)
     return parser
 
 

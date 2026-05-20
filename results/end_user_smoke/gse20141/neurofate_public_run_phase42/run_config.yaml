@@ -1,0 +1,10 @@
+expression: data/raw/end_user_smoke/gse20141/GSE20141_series_matrix.txt.gz
+metadata: results/end_user_smoke/gse20141/sample_metadata.tsv
+axis_registry: /Users/krishnendu/Documents/GitHub/NeuroFate/NeuroFate/neurofate/resources/neurofate_axis_registry.tsv
+gene_map: results/end_user_smoke/gse20141/gpl570_axis_probe_mapping.tsv
+alias_table: /Users/krishnendu/Documents/GitHub/NeuroFate/NeuroFate/neurofate/resources/neurofate_axis_gene_aliases.tsv
+research_use_only: NeuroFate is intended for research use only. It is not validated
+  for clinical diagnosis, patient-level decision-making, or treatment selection.
+ingest_outdir: results/end_user_smoke/gse20141/neurofate_public_run_phase42/ingest
+axis_outdir: results/end_user_smoke/gse20141/neurofate_public_run_phase42/axis
+risk_outdir: results/end_user_smoke/gse20141/neurofate_public_run_phase42/risk

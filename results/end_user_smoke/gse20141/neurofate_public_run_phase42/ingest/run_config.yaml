@@ -1,0 +1,22 @@
+expression: data/raw/end_user_smoke/gse20141/GSE20141_series_matrix.txt.gz
+metadata: results/end_user_smoke/gse20141/sample_metadata.tsv
+axis_registry: /Users/krishnendu/Documents/GitHub/NeuroFate/NeuroFate/neurofate/resources/neurofate_axis_registry.tsv
+gene_map: results/end_user_smoke/gse20141/gpl570_axis_probe_mapping.tsv
+alias_table: /Users/krishnendu/Documents/GitHub/NeuroFate/NeuroFate/neurofate/resources/neurofate_axis_gene_aliases.tsv
+research_use_only: NeuroFate is intended for research use only. It is not validated
+  for clinical diagnosis, patient-level decision-making, or treatment selection.
+sample_id_column: geo_accession
+endpoint_column: label__pd_vs_control
+positive_class: '1'
+negative_class: '0'
+metadata_rows: 18
+standardized_metadata_rows: 18
+ambiguous_label_count: 0
+expression_format: genes_rows
+gene_identifier_type: gene_symbol
+input_feature_count: 54675
+retained_input_feature_count: 79
+unmapped_input_feature_count: 54596
+multi_feature_gene_count: 20
+retained_axis_gene_count: 29
+retained_axis_genes: AIF1;APOE;APP;B2M;CX3CR1;GFAP;GPNMB;HLA-DRA;IL1B;LAMP5;LRRK2;MAPT;MBP;MOBP;NEFL;NEFM;NFKB1;P2RY12;PINK1;PLP1;PSEN1;PSEN2;PVALB;SLC17A7;SNCA;SST;TNF;TREM2;TYROBP

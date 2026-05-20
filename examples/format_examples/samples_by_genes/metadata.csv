@@ -1,0 +1,5 @@
+sample_id,diagnosis,cohort
+S01,Control,tiny_samples_by_genes
+S02,Control,tiny_samples_by_genes
+S03,AD,tiny_samples_by_genes
+S04,AD,tiny_samples_by_genes
