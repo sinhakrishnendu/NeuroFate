@@ -19,8 +19,24 @@
   ],
   "author": [
     {
-      "@type": "Organization",
-      "name": "NeuroFate contributors"
+      "@type": "Person",
+      "givenName": "Nabanita",
+      "familyName": "Ghosh",
+      "email": "nabanitaghosh89@gmail.com",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Assistant Professor, Department of Zoology, Maulana Azad College, Kolkata, India"
+      }
+    },
+    {
+      "@type": "Person",
+      "givenName": "Krishnendu",
+      "familyName": "Sinha",
+      "email": "dr.krishnendusinha@gmail.com",
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Assistant Professor, Department of Zoology, Jhargram Raj College, Jhargram, West Bengal, India"
+      }
     }
   ]
 }

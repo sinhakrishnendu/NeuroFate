@@ -15,7 +15,10 @@ SCAN_PATTERNS = [
     "results/reports/*.txt",
     "RESULTS_INTERPRETATION.md",
     "README.md",
+    "docs/*.md",
     "manuscript/*.tex",
+    "manuscript/bioinformatics/*.tex",
+    "manuscript/bioinformatics/*.md",
 ]
 
 UNSAFE_PHRASES = [
@@ -48,6 +51,31 @@ UNSAFE_PHRASES = [
         "phrase": "diagnostic",
         "requires": "clinical_validation",
         "recommendation": "Use research model or hypothesis generator unless clinical validation exists.",
+    },
+    {
+        "phrase": "diagnostic tool",
+        "requires": "clinical_validation",
+        "recommendation": "Use research software or research workflow unless clinical validation exists.",
+    },
+    {
+        "phrase": "clinical diagnosis",
+        "requires": "clinical_validation",
+        "recommendation": "Use research-use disease-state modelling unless clinical validation exists.",
+    },
+    {
+        "phrase": "patient diagnosis",
+        "requires": "clinical_validation",
+        "recommendation": "Use donor/sample-level research stratification, not patient diagnosis.",
+    },
+    {
+        "phrase": "medical device",
+        "requires": "clinical_validation",
+        "recommendation": "Use research software unless regulatory medical-device validation exists.",
+    },
+    {
+        "phrase": "treatment recommendation",
+        "requires": "clinical_validation",
+        "recommendation": "Use research report or cohort-level analysis, not treatment recommendation.",
     },
     {
         "phrase": "state-of-the-art",
@@ -118,6 +146,11 @@ UNSAFE_PHRASES = [
         "phrase": "definitive shared mechanism",
         "requires": "multi_disease_external_validation",
         "recommendation": "Use candidate shared axis or exploratory cross-disease convergence.",
+    },
+    {
+        "phrase": "validated shared mechanism",
+        "requires": "multi_disease_external_validation",
+        "recommendation": "Use candidate shared axis unless AD and PD replication support converge.",
     },
     {
         "phrase": "validated across diseases",
@@ -206,6 +239,13 @@ ALLOWED_CONTEXTS = [
     "candidate disease-associated axis",
     "preliminary mechanism hypothesis",
     "not a clinical biomarker",
+    "not validated for clinical diagnosis",
+    "not validated for patient diagnosis",
+    "not a medical device",
+    "not validated for treatment recommendation",
+    "not a treatment recommendation",
+    "not a validated shared mechanism",
+    "do not claim a validated shared mechanism",
     "rather than a diagnostic",
     "rather than deployed",
     "does not by itself imply",
@@ -236,6 +276,16 @@ ALLOWED_CONTEXTS = [
     "not a diagnostic axis",
     "not a causal mechanism",
     "unless statistically supported",
+    "cannot justify wording",
+    "causal claims require",
+    "does not make clinical",
+    "does not justify clinical",
+    "cannot by itself establish",
+    "not by themselves causal",
+    "rather than clinical or causal",
+    "rather than as claims of causal",
+    "unsupported clinical, causal",
+    "does not claim care-delivery",
 ]
 
 

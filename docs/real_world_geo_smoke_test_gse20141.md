@@ -43,7 +43,7 @@ neurofate run \
   --expression data/raw/end_user_smoke/gse20141/GSE20141_series_matrix.txt.gz \
   --metadata results/end_user_smoke/gse20141/sample_metadata.tsv \
   --gene-map results/end_user_smoke/gse20141/gpl570_axis_probe_mapping.tsv \
-  --outdir results/end_user_smoke/gse20141/neurofate_public_run \
+  --outdir results/end_user_smoke/gse20141/neurofate_public_run_final \
   --sample-id-column geo_accession \
   --endpoint-column label__pd_vs_control \
   --positive-class 1 \
@@ -55,6 +55,7 @@ neurofate run \
 ## Result
 
 - Run status: passed
+- Runtime: 0.88 seconds wall time on the local release-candidate run
 - Standardized metadata rows: 18
 - Expression samples: 18
 - Matched samples: 18/18

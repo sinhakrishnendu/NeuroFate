@@ -3,7 +3,14 @@ title: NeuroFate
 message: "If you use NeuroFate, please cite the software release and the original data sources."
 type: software
 authors:
-  - name: NeuroFate contributors
+  - family-names: Ghosh
+    given-names: Nabanita
+    affiliation: "Assistant Professor, Department of Zoology, Maulana Azad College, Kolkata, India"
+    email: nabanitaghosh89@gmail.com
+  - family-names: Sinha
+    given-names: Krishnendu
+    affiliation: "Assistant Professor, Department of Zoology, Jhargram Raj College, Jhargram, West Bengal, India"
+    email: dr.krishnendusinha@gmail.com
 version: 0.3.0
 date-released: 2026-05-20
 repository-code: "https://github.com/sinhakrishnendu/NeuroFate.git"

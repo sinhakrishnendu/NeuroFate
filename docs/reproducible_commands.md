@@ -27,7 +27,7 @@ neurofate run \
   --expression data/raw/end_user_smoke/gse20141/GSE20141_series_matrix.txt.gz \
   --metadata results/end_user_smoke/gse20141/sample_metadata.tsv \
   --gene-map results/end_user_smoke/gse20141/gpl570_axis_probe_mapping.tsv \
-  --outdir results/end_user_smoke/gse20141/neurofate_public_run \
+  --outdir results/end_user_smoke/gse20141/neurofate_public_run_final \
   --sample-id-column geo_accession \
   --endpoint-column label__pd_vs_control \
   --positive-class 1 \
@@ -40,10 +40,10 @@ neurofate run \
 
 ```bash
 neurofate adapt-endpoint \
-  --metadata results/end_user_smoke/gse20141/neurofate_public_run/ingest/standardized_metadata.tsv \
+  --metadata results/end_user_smoke/gse20141/neurofate_public_run_final/ingest/standardized_metadata.tsv \
   --endpoint-column label__endpoint \
   --task pd_vs_control \
-  --outdir results/end_user_smoke/gse20141/neurofate_public_run/adapted
+  --outdir results/end_user_smoke/gse20141/neurofate_public_run_final/adapted
 ```
 
 ## Tests
@@ -66,8 +66,8 @@ python -m pytest \
 ## Package Build
 
 ```bash
-python -m build --outdir dist_phase42
-python -m twine check dist_phase42/*
+python -m build --outdir dist_final
+python -m twine check dist_final/*
 ```
 
 Do not upload to PyPI until release metadata, repository visibility, and final
