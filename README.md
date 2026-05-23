@@ -8,8 +8,6 @@ NeuroFate is a Python CLI package for reproducible donor/sample-level transcript
 
 Repository: <https://github.com/sinhakrishnendu/NeuroFate.git>
 
-Current release-candidate version: **0.3.0**
-
 ## What NeuroFate Does
 
 NeuroFate turns a user-supplied transcriptomic cohort into a compact, auditable set of research outputs:
