@@ -1,31 +1,64 @@
 # NeuroFate
 
-**NeuroFate: format-aware command-line software for endpoint-locked transcriptomic neurodegeneration risk scoring.**
+**NeuroFate: command-line research software for endpoint-locked transcriptomic neurodegeneration risk scoring and axis analysis.**
 
-NeuroFate is a Python command-line research software package for reproducible donor/sample-level transcriptomic neurodegeneration-axis analysis. It inspects user-supplied expression and metadata tables, detects common table layouts, harmonizes gene/probe identifiers, locks endpoints before scoring, builds curated neurodegeneration-axis scores, writes research-use risk scores, and creates auditable reports.
+NeuroFate is a Python CLI package for reproducible donor/sample-level transcriptomic analysis in neurodegeneration research. It takes compact expression and metadata tables, harmonizes common gene/probe identifiers, locks the endpoint before scoring, computes curated NeuroFate axis scores, creates research-use risk summaries, and writes audit-friendly reports.
 
 Repository: <https://github.com/sinhakrishnendu/NeuroFate.git>
 
 Current release-candidate version: **0.3.0**
 
+## What NeuroFate Does
+
+NeuroFate turns a user-supplied transcriptomic cohort into a compact, auditable set of research outputs:
+
+1. It inspects expression and metadata files.
+2. It standardizes sample IDs, endpoint labels, and gene/probe identifiers.
+3. It retains NeuroFate axis genes rather than exporting whole-genome matrices.
+4. It computes donor/sample-level axis scores.
+5. It writes a research-use risk score and plain-language report.
+6. It records every important choice in join audits, mapping reports, warnings, and run configuration files.
+
+The usual public workflow is:
+
+```text
+expression table + metadata
+  -> neurofate ingest
+  -> standardized expression + standardized metadata
+  -> neurofate build-axis-scores
+  -> axis scores + feature coverage
+  -> neurofate score-risk
+  -> research-use score report
+```
+
+For most users, the single command `neurofate run` performs the complete workflow.
+
 ## Research-Use-Only Notice
 
-NeuroFate is intended for research use only. It is not a clinical biomarker and is not validated for clinical diagnosis, patient-level decision-making, treatment selection, or care-delivery use. NeuroFate outputs are intended for cohort-level transcriptomic research, diagnosis-oriented research, endpoint-locked disease-state modelling, and reproducible software demonstrations.
+NeuroFate is intended for research use only. It is not for care delivery, individual-level disease calls, therapeutic guidance, or regulated health use. NeuroFate outputs are designed for cohort-level transcriptomic research, endpoint-locked disease-state modelling, reproducible software demonstrations, and transparent evidence grading.
+
+Every public report includes the same boundary statement:
+
+```text
+Research use only. NeuroFate is not validated for care-delivery use,
+individual-level disease calls, or therapeutic guidance.
+```
 
 ## Key Features
 
 - CLI/PyPI-ready package with the console command `neurofate`.
-- Format-aware ingestion through `neurofate ingest`.
-- Complete public workflow through `neurofate run`.
-- GEO series matrix support through direct parsing of `!series_matrix_table_begin` expression sections.
+- One-command public workflow with `neurofate run`.
+- Separate inspection/standardization workflow with `neurofate ingest`.
+- GEO series matrix support, including embedded `!series_matrix_table_begin` expression tables.
 - CSV, TSV, TXT, and `.gz` input support.
 - Genes-by-samples, samples-by-genes, and long-format expression support.
 - Ensembl ID, gene-symbol, and microarray probe mapping support.
 - Endpoint locking with explicit positive and negative classes.
-- Curated NeuroFate axis scoring.
+- Curated NeuroFate axis scoring at donor/sample level.
 - Research-use risk scoring and Markdown reports.
-- Leakage-audit and no-overclaiming audit scripts for repository-level validation.
 - Endpoint adapter for compatibility between public CLI outputs and validation scripts.
+- Leakage-audit and no-overclaiming audit scripts for repository-level checks.
+- Bundled no-download tiny demo.
 - Real-world public GEO smoke test using GSE20141 and GPL570.
 - Buildable wheel/sdist artifacts and reviewer-facing manuscript assets.
 
@@ -66,32 +99,69 @@ The default package does not require Scanpy, AnnData, PyTorch, or matplotlib. Py
 
 ## Quick Start
 
-Check the installation:
+### 1. Check The Installation
 
 ```bash
+neurofate --help
 neurofate check-system
 neurofate doctor
 ```
 
-Run the bundled no-download demo:
+### 2. Run The Bundled Demo
+
+The demo needs no downloads and finishes in seconds:
 
 ```bash
 neurofate run-demo
 ```
 
-Run the full public workflow on a compact user dataset:
+Demo outputs are written under:
+
+```text
+results/demo/
+```
+
+Inspect:
+
+```text
+results/demo/axis_scores.tsv
+results/demo/neurofate_risk_scores.tsv
+results/demo/risk_score_report.md
+```
+
+### 3. Run Your Own Dataset
+
+Minimal command:
 
 ```bash
 neurofate run \
-  --expression examples/format_examples/genes_by_samples/expression.tsv \
-  --metadata examples/format_examples/genes_by_samples/metadata.tsv \
+  --expression expression.tsv.gz \
+  --metadata metadata.tsv \
   --outdir results/neurofate_run
 ```
 
-Expected top-level outputs include:
+Recommended explicit command:
+
+```bash
+neurofate run \
+  --expression expression.tsv.gz \
+  --metadata metadata.tsv \
+  --outdir results/neurofate_run \
+  --sample-id-column sample_id \
+  --endpoint-column diagnosis \
+  --positive-class AD \
+  --negative-class Control \
+  --orientation auto
+```
+
+Expected top-level outputs:
 
 - `ingest/standardized_expression.tsv.gz`
 - `ingest/standardized_metadata.tsv`
+- `ingest/input_schema_detected.tsv`
+- `ingest/expression_metadata_join.tsv`
+- `ingest/gene_mapping_report.tsv`
+- `ingest/ingest_warnings.tsv`
 - `axis/axis_scores.tsv`
 - `axis/axis_feature_coverage.tsv`
 - `axis/label_summary.tsv`
@@ -99,6 +169,22 @@ Expected top-level outputs include:
 - `risk/risk_score_report.md`
 - `neurofate_run_report.md`
 - `run_config.yaml`
+
+## Choose The Right Workflow
+
+Use this quick decision guide.
+
+| Goal | Command |
+| --- | --- |
+| Check install and packaged resources | `neurofate check-system` and `neurofate doctor` |
+| Run a no-download example | `neurofate run-demo` |
+| Inspect and standardize data before scoring | `neurofate ingest` |
+| Run the complete public workflow | `neurofate run` |
+| Score an already standardized expression table | `neurofate build-axis-scores` |
+| Create a research-use score from axis scores | `neurofate score-risk` |
+| Create endpoint aliases for validation scripts | `neurofate adapt-endpoint` |
+
+Most users should start with `neurofate run-demo`, then run `neurofate run` on their own expression and metadata files.
 
 ## Public CLI Overview
 
@@ -117,15 +203,27 @@ neurofate adapt-endpoint
 
 ### `neurofate check-system`
 
-Reports Python version, platform, and optional dependency availability.
+Reports Python version, platform, executable path, and optional dependency availability.
+
+```bash
+neurofate check-system
+```
 
 ### `neurofate doctor`
 
 Checks packaged resources and, in a repository checkout, core project files.
 
+```bash
+neurofate doctor
+```
+
 ### `neurofate run-demo`
 
 Runs a small synthetic dataset without downloads and writes demo outputs under `results/demo/`.
+
+```bash
+neurofate run-demo
+```
 
 ### `neurofate ingest`
 
@@ -135,8 +233,14 @@ Inspects expression and metadata tables, infers format, validates sample overlap
 neurofate ingest \
   --expression expression.tsv.gz \
   --metadata metadata.tsv \
-  --outdir results/neurofate_ingest
+  --outdir results/neurofate_ingest \
+  --sample-id-column sample_id \
+  --endpoint-column diagnosis \
+  --positive-class AD \
+  --negative-class Control
 ```
+
+Useful when you want to examine the detected input schema before score calculation.
 
 ### `neurofate build-axis-scores`
 
@@ -176,7 +280,24 @@ ingest -> build-axis-scores -> score-risk -> report
 neurofate run \
   --expression expression.tsv.gz \
   --metadata metadata.tsv \
-  --outdir results/neurofate_run
+  --outdir results/neurofate_run \
+  --endpoint-column diagnosis \
+  --positive-class AD \
+  --negative-class Control
+```
+
+Use `--gene-map` for microarray probe inputs:
+
+```bash
+neurofate run \
+  --expression expression.tsv.gz \
+  --metadata metadata.tsv \
+  --gene-map probe_map.tsv \
+  --outdir results/neurofate_run \
+  --sample-id-column sample_id \
+  --endpoint-column group \
+  --positive-class PD \
+  --negative-class Control
 ```
 
 ### `neurofate adapt-endpoint`
@@ -197,17 +318,53 @@ Outputs:
 - `endpoint_aliases.tsv`
 - `endpoint_adapter_report.md`
 
-The adapter copies binary 0/1 labels only. It does not reinterpret biological class direction.
+The adapter copies binary 0/1 labels only. It does not reinterpret class direction.
 
-### `neurofate make-report`
+### Advanced Repository Commands
 
-`make-report` is a guarded repository workflow for generating reports from existing project outputs. It is useful in the full repository checkout but is not required for the public ingest/run workflow.
+`make-report` and historical phase scripts are retained for reproducibility in the full repository checkout. They are not required for normal public use.
 
-Advanced or experimental commands such as `train-baseline`, `train-mps`, `validate-external`, `benchmark`, and historical phase wrappers are retained for reproducibility. They are not the recommended first commands for new users.
+Experimental or internal research commands such as `train-baseline`, `train-mps`, `validate-external`, `benchmark`, and phase-specific wrappers should be treated as advanced workflows unless documented otherwise.
+
+## Prepare Your Files
+
+Before running NeuroFate, confirm four things.
+
+1. Your expression table contains sample-level values.
+2. Your metadata table contains one row per sample.
+3. Sample identifiers can be matched between expression and metadata.
+4. You know the endpoint column and the two classes to compare.
+
+Recommended metadata columns:
+
+```text
+sample_id    diagnosis
+S01          Control
+S02          AD
+S03          AD
+```
+
+For GEO studies, accessions such as `GSM503950` are usually the safest sample IDs.
+
+For microarray data, prepare a probe map if the expression rows are probes rather than gene symbols:
+
+```text
+probe_id      gene_symbol
+1007_s_at     DDR1
+207827_x_at   SNCA
+```
+
+For Ensembl matrices, NeuroFate can use the bundled curated alias table:
+
+```text
+metadata/neurofate_axis_gene_aliases.tsv
+```
 
 ## Input Formats
 
 NeuroFate public ingestion accepts compact text tables. It does not process raw FASTQ/FQ, SRA, CEL/CHP, H5AD/AnnData, or HDF5 single-cell containers.
+
+Compressed `.gz` files are supported for CSV, TSV, TXT, and GEO series matrix inputs.
 
 ### Genes-by-Samples Matrix
 
@@ -216,6 +373,16 @@ gene_symbol    S01    S02    S03
 SNCA           0.2    0.4    0.8
 GFAP           0.1    0.3    1.1
 NEFL           1.2    1.0    0.7
+```
+
+Command:
+
+```bash
+neurofate run \
+  --expression genes_by_samples.tsv \
+  --metadata metadata.tsv \
+  --outdir results/neurofate_run \
+  --orientation genes_rows
 ```
 
 ### Samples-by-Genes Matrix
@@ -227,6 +394,16 @@ S02          0.4     0.3     1.0
 S03          0.8     1.1     0.7
 ```
 
+Command:
+
+```bash
+neurofate run \
+  --expression samples_by_genes.tsv \
+  --metadata metadata.tsv \
+  --outdir results/neurofate_run \
+  --orientation samples_rows
+```
+
 ### Long Format
 
 ```text
@@ -234,6 +411,16 @@ sample_id    gene_symbol    expression_value
 S01          SNCA           0.2
 S01          GFAP           0.1
 S02          SNCA           0.4
+```
+
+Command:
+
+```bash
+neurofate run \
+  --expression long_expression.tsv \
+  --metadata metadata.tsv \
+  --outdir results/neurofate_run \
+  --orientation long
 ```
 
 ### GEO Series Matrix
@@ -249,6 +436,20 @@ S02          SNCA           0.4
 
 NeuroFate reads the expression table between `!series_matrix_table_begin` and `!series_matrix_table_end`. Supply a separate metadata table with sample identifiers matching the expression columns.
 
+Command:
+
+```bash
+neurofate run \
+  --expression GSE_series_matrix.txt.gz \
+  --metadata sample_metadata.tsv \
+  --gene-map platform_axis_probe_mapping.tsv \
+  --outdir results/neurofate_run \
+  --sample-id-column geo_accession \
+  --endpoint-column label__pd_vs_control \
+  --positive-class 1 \
+  --negative-class 0
+```
+
 ### Ensembl-ID Matrix
 
 ```text
@@ -257,7 +458,11 @@ ENSG00000145335    0.2    0.4
 ENSG00000131095    0.1    0.3
 ```
 
-NeuroFate maps curated axis genes using `metadata/neurofate_axis_gene_aliases.tsv`.
+NeuroFate maps curated axis genes using:
+
+```text
+metadata/neurofate_axis_gene_aliases.tsv
+```
 
 ### Microarray Probe Matrix With Gene Map
 
@@ -286,8 +491,6 @@ neurofate run \
   --gene-map probe_map.tsv \
   --outdir results/neurofate_run
 ```
-
-Compressed `.gz` files are supported for CSV, TSV, TXT, and GEO series matrix inputs.
 
 ## Metadata Requirements
 
@@ -331,7 +534,7 @@ Optional covariates such as age, sex, postmortem interval, brain region, and bat
 - `input_schema_detected.tsv`: detected delimiter, orientation, endpoint settings, feature counts, and retained genes.
 - `expression_metadata_join.tsv`: expression/metadata sample-overlap audit.
 - `gene_mapping_report.tsv`: input feature mapping and retention status.
-- `ingest_warnings.tsv`: non-fatal warnings.
+- `ingest_warnings.tsv`: non-fatal warnings. This file is written even when empty.
 - `ingest_report.md`: human-readable ingest report.
 - `run_config.yaml`: reproducibility settings for ingestion.
 
@@ -351,6 +554,122 @@ Optional covariates such as age, sex, postmortem interval, brain region, and bat
 - `adapted_metadata.tsv`: standardized metadata plus endpoint aliases.
 - `endpoint_aliases.tsv`: alias mapping audit.
 - `endpoint_adapter_report.md`: human-readable adapter report.
+
+## How To Read The Outputs
+
+Start with these files.
+
+### `neurofate_run_report.md`
+
+This is the human-readable run summary. It tells you whether ingestion, axis scoring, and risk scoring completed.
+
+### `ingest/expression_metadata_join.tsv`
+
+Use this first if samples are missing. Important columns:
+
+- `expression_sample_count`
+- `metadata_sample_count`
+- `matched_sample_count`
+- `unmatched_expression_samples`
+- `unmatched_metadata_samples`
+
+### `ingest/gene_mapping_report.tsv`
+
+Use this to see which input genes/probes were retained for NeuroFate axes.
+
+### `axis/axis_feature_coverage.tsv`
+
+Use this to decide how cautious interpretation should be for each axis. Low coverage means the axis score is less complete.
+
+### `axis/axis_scores.tsv`
+
+This is the core sample-level output. Each row is a sample and each axis column is a NeuroFate score.
+
+### `risk/neurofate_risk_scores.tsv`
+
+This is a research-use score summary derived from axis scores. It should be interpreted only as an exploratory cohort-level ranking or stratification output.
+
+### `run_config.yaml`
+
+This records the command settings needed to repeat the run.
+
+## Practical Recipes
+
+### Recipe 1: Let NeuroFate Infer Common Settings
+
+```bash
+neurofate run \
+  --expression expression.tsv \
+  --metadata metadata.tsv \
+  --outdir results/my_run
+```
+
+Use this for simple files with obvious `sample_id` and `diagnosis` or `group` columns.
+
+### Recipe 2: Lock The Endpoint Explicitly
+
+```bash
+neurofate run \
+  --expression expression.tsv \
+  --metadata metadata.tsv \
+  --outdir results/my_run \
+  --sample-id-column sample_id \
+  --endpoint-column disease_state \
+  --positive-class PD \
+  --negative-class Control
+```
+
+Use this when metadata contains several candidate label columns.
+
+### Recipe 3: Score A GEO Series Matrix With A Platform Map
+
+```bash
+neurofate run \
+  --expression GSE20141_series_matrix.txt.gz \
+  --metadata sample_metadata.tsv \
+  --gene-map gpl570_axis_probe_mapping.tsv \
+  --outdir results/gse20141_neurofate_run \
+  --sample-id-column geo_accession \
+  --endpoint-column label__pd_vs_control \
+  --positive-class 1 \
+  --negative-class 0 \
+  --orientation auto
+```
+
+Use this when expression columns are GEO sample accessions and rows are platform probes.
+
+### Recipe 4: Inspect First, Score Later
+
+```bash
+neurofate ingest \
+  --expression expression.tsv.gz \
+  --metadata metadata.tsv \
+  --outdir results/ingest_check \
+  --endpoint-column diagnosis \
+  --positive-class AD \
+  --negative-class Control
+```
+
+After checking `results/ingest_check/ingest_report.md`, run:
+
+```bash
+neurofate build-axis-scores \
+  --expression results/ingest_check/standardized_expression.tsv.gz \
+  --metadata results/ingest_check/standardized_metadata.tsv \
+  --outdir results/axis_scores \
+  --sample-id-column sample_id \
+  --endpoint-column label__endpoint \
+  --positive-class 1 \
+  --negative-class 0
+```
+
+Then:
+
+```bash
+neurofate score-risk \
+  --axis-scores results/axis_scores/axis_scores.tsv \
+  --outdir results/axis_scores
+```
 
 ## Real-World Example: GSE20141
 
@@ -417,7 +736,7 @@ The default axis registry is stored in `metadata/neurofate_axis_registry.tsv` an
 - `vascular_barrier_axis`: vascular, barrier, and inflammatory interaction genes.
 - `global_neurodegeneration_axis`: broad neurodegeneration-associated axis.
 
-Axes are research summaries of available expression features. They are not by themselves causal mechanisms or care-delivery tools.
+Axes are research summaries of available expression features. They should not be read as proof of disease biology by themselves.
 
 ## Reproducibility
 
@@ -464,7 +783,7 @@ python -m twine check dist_final/*
 Compile the manuscript:
 
 ```bash
-latexmk -pdf manuscript/bioinformatics/neurofate_bioinformatics_full_methods_paper.tex
+latexmk -pdf -cd manuscript/bioinformatics/neurofate_bioinformatics_full_methods_paper.tex
 ```
 
 ## Testing
@@ -488,6 +807,15 @@ python -m pytest \
   tests/test_bioinformatics_full_methods_manuscript.py
 ```
 
+Release-manual checks:
+
+```bash
+python -m pytest \
+  tests/test_release_readme_manual.py \
+  tests/test_release_research_use_only.py \
+  tests/test_release_packaging_metadata.py
+```
+
 Test coverage includes:
 
 - Public CLI availability.
@@ -505,6 +833,8 @@ Test coverage includes:
 
 Version: `0.3.0`
 
+`dist/` is reserved for PyPI artifacts. Review ZIPs and manuscript/reviewer packages should use `release_artifacts/` or another explicit review directory.
+
 Build artifacts:
 
 ```bash
@@ -512,8 +842,7 @@ python -m build --outdir dist_final
 python -m twine check dist_final/*
 ```
 
-Historical reviewer archive builders remain separate from PyPI artifacts. When
-used, they write review ZIPs such as:
+Historical reviewer archive builders remain separate from PyPI artifacts. When used, they write review ZIPs such as:
 
 - `release_artifacts/neurofate_source_release_<timestamp>.zip`
 - `release_artifacts/neurofate_results_review_<timestamp>.zip`
@@ -531,6 +860,22 @@ Before release:
 
 Do not bundle large public datasets, controlled data, raw matrices, trained real-data models, or generated heavy outputs in the PyPI package.
 
+## Safety And Memory Design
+
+NeuroFate public commands operate on compact donor/sample-level or axis-gene/probe tables. The public ingestion workflow does not process raw FASTQ/SRA, CEL/CHP, H5AD/AnnData, UMAP, clustering, or dense genome-wide converted matrices.
+
+Large study-specific scripts are kept outside the recommended public workflow. They remain in the repository to document analyses, but the PyPI-style interface is centered on compact user-supplied tables.
+
+## Current Validation Status
+
+The current release is validated as research software through public CLI tests, ingestion tests, a bundled tiny demo, a real-world GSE20141 GEO smoke test, package build checks, and no-overclaiming audits. Biological cohort results are demonstration evidence and should not be interpreted as care-delivery validation.
+
+Reviewer report generators remain lightweight and can be run from existing outputs, for example:
+
+```bash
+python scripts/51_generate_end_user_report.py --tables-dir results/tables --reports-dir results/reports
+```
+
 ## Troubleshooting
 
 ### Sample IDs Do Not Match
@@ -541,14 +886,35 @@ Inspect:
 ingest/expression_metadata_join.tsv
 ```
 
-Common causes include whitespace, punctuation differences, using sample titles instead of accessions, or choosing the wrong sample ID column. Rerun with `--sample-id-column`.
+Common causes:
 
-### Ambiguous Endpoint Column
+- Metadata uses titles while expression uses accessions.
+- One table has whitespace around IDs.
+- Expression sample IDs include punctuation or prefixes not present in metadata.
+- The wrong sample ID column was selected.
+
+Fix:
+
+```bash
+neurofate run \
+  --expression expression.tsv \
+  --metadata metadata.tsv \
+  --sample-id-column geo_accession \
+  --outdir results/neurofate_run
+```
+
+### Endpoint Column Is Ambiguous
 
 Rerun with explicit endpoint settings:
 
 ```bash
---endpoint-column diagnosis --positive-class AD --negative-class Control
+neurofate run \
+  --expression expression.tsv.gz \
+  --metadata metadata.tsv \
+  --endpoint-column diagnosis \
+  --positive-class AD \
+  --negative-class Control \
+  --outdir results/neurofate_run
 ```
 
 ### Too Few Axis Genes
@@ -560,7 +926,11 @@ ingest/gene_mapping_report.tsv
 axis/axis_feature_coverage.tsv
 ```
 
-Use `--gene-map` for microarray probes or an alias table for Ensembl IDs.
+Common fixes:
+
+- Use `--gene-map` for microarray probes.
+- Confirm whether row IDs are gene symbols or Ensembl IDs.
+- Lower `--min-axis-genes` only for exploration and report low coverage clearly.
 
 ### Unsupported Raw Formats
 
@@ -594,6 +964,21 @@ If the file is a SOFT/MINiML/platform annotation rather than a series matrix exp
 
 Low axis-gene coverage does not necessarily mean the run failed. It means interpretation should be cautious and platform coverage should be reported.
 
+### Multiple Probes Map To One Gene
+
+This is common for microarray platforms. NeuroFate reports multi-probe mapping and aggregates retained probes conservatively for axis scoring.
+
+### Output Directory Already Exists
+
+Use a fresh `--outdir` for a clean run:
+
+```bash
+neurofate run \
+  --expression expression.tsv \
+  --metadata metadata.tsv \
+  --outdir results/neurofate_run_001
+```
+
 ## Citation
 
 Use `CITATION.cff` for the software citation. Cite the Bioinformatics manuscript after publication and cite each external dataset according to its source-specific instructions.
@@ -601,7 +986,7 @@ Use `CITATION.cff` for the software citation. Cite the Bioinformatics manuscript
 Manuscript citation placeholder:
 
 ```text
-Ghosh N, Sinha K. NeuroFate: format-aware command-line software for endpoint-locked transcriptomic neurodegeneration risk scoring. Bioinformatics. In preparation.
+Ghosh N, Sinha K. NeuroFate: command-line research software for endpoint-locked transcriptomic neurodegeneration risk scoring. Bioinformatics. In preparation.
 ```
 
 Zenodo DOI placeholder: add after archiving the release.

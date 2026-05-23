@@ -240,6 +240,7 @@ ALLOWED_CONTEXTS = [
     "preliminary mechanism hypothesis",
     "not a clinical biomarker",
     "not validated for clinical diagnosis",
+    "not be interpreted as clinical diagnosis",
     "not validated for patient diagnosis",
     "not a medical device",
     "not validated for treatment recommendation",

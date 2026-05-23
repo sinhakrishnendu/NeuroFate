@@ -26,7 +26,7 @@ def test_release_metadata_files_exist() -> None:
 def test_codemeta_is_valid_json() -> None:
     metadata = json.loads((ROOT / "codemeta.json").read_text(encoding="utf-8"))
     assert metadata["name"] == "NeuroFate"
-    assert metadata["version"] == "0.1.0"
+    assert metadata["version"] == "0.3.0"
 
 
 def test_ci_runs_release_smoke_checks() -> None:

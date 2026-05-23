@@ -10,6 +10,7 @@ def test_pyproject_has_console_entry_point_and_lightweight_metadata() -> None:
     assert project["name"] == "neurofate"
     assert project["version"] == "0.3.0"
     assert project["scripts"]["neurofate"] == "neurofate.cli:main"
+    assert "License :: OSI Approved :: MIT License" in project["classifiers"]
     assert "scanpy" not in "\n".join(project["dependencies"]).lower()
     assert "anndata" not in "\n".join(project["dependencies"]).lower()
     assert "mps" in project["optional-dependencies"]

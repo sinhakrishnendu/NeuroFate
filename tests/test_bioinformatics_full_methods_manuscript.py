@@ -33,3 +33,12 @@ def test_full_methods_manuscript_avoids_clinical_claims() -> None:
     ]
     for phrase in forbidden:
         assert phrase not in text
+
+
+def test_full_methods_manuscript_uses_single_mechanistic_figure() -> None:
+    text = MANUSCRIPT.read_text(encoding="utf-8")
+    assert text.count("\\includegraphics") == 1
+    assert "figures/figure1_full_workflow.pdf" in text
+    assert "figure2_ingestion_engine" not in text
+    assert "figure3_cli_outputs" not in text
+    assert "figure4_multicohort_demonstration" not in text

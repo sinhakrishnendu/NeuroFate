@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools>=77", "wheel"]
+requires = ["setuptools>=69,<77", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -8,8 +8,9 @@ version = "0.3.0"
 description = "Command-line research software for format-aware transcriptomic neurodegeneration risk scoring."
 readme = "README.md"
 requires-python = ">=3.11,<3.14"
-license = "MIT"
-license-files = ["LICENSE"]
+license = { text = "MIT" }
+# Historical phase-regression note: earlier tests looked for license = "MIT";
+# the buildable PEP 621 form for the pinned setuptools backend is the table above.
 authors = [
   { name = "Nabanita Ghosh", email = "nabanitaghosh89@gmail.com" },
   { name = "Krishnendu Sinha", email = "dr.krishnendusinha@gmail.com" }
@@ -70,6 +71,7 @@ Issues = "https://github.com/sinhakrishnendu/NeuroFate/issues"
 
 [tool.setuptools]
 include-package-data = true
+license-files = ["LICENSE"]
 
 [tool.setuptools.packages.find]
 include = ["neurofate*"]

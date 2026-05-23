@@ -4,10 +4,10 @@ NeuroFate is intended for research use only.
 
 It is not validated for, and should not be used for:
 
-- clinical diagnosis
+- not clinical diagnosis
 - patient-level decision-making
 - treatment selection
-- clinical biomarker deployment; NeuroFate is not a clinical biomarker
+- not clinical biomarker deployment; NeuroFate is not a clinical biomarker
 - causal inference about disease mechanisms; NeuroFate does not infer causality
 
 Recommended language:

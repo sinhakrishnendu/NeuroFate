@@ -15,6 +15,7 @@ def test_public_commands_are_available() -> None:
         "run",
         "build-axis-scores",
         "score-risk",
+        "adapt-endpoint",
         "audit-leakage",
         "train-baseline",
         "train-mps",

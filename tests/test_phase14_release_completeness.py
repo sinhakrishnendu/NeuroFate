@@ -12,7 +12,7 @@ def test_license_is_mit_and_metadata_agrees() -> None:
     citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
     codemeta = (ROOT / "codemeta.json").read_text(encoding="utf-8")
     assert license_text.startswith("MIT License")
-    assert 'license = "MIT"' in pyproject
+    assert 'license = { text = "MIT" }' in pyproject
     assert "License :: OSI Approved :: MIT License" in pyproject
     assert "license: MIT" in citation
     assert '"license": "MIT"' in codemeta
