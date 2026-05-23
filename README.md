@@ -1,6 +1,8 @@
 # NeuroFate
 
-**NeuroFate: command-line research software for endpoint-locked transcriptomic neurodegeneration risk scoring and axis analysis.**
+[![DOI](https://zenodo.org/badge/1241603569.svg)](https://doi.org/10.5281/zenodo.20319379)
+
+**NeuroFate: format-aware command-line software for endpoint-locked transcriptomic neurodegeneration risk scoring.**
 
 NeuroFate is a Python CLI package for reproducible donor/sample-level transcriptomic analysis in neurodegeneration research. It takes compact expression and metadata tables, harmonizes common gene/probe identifiers, locks the endpoint before scoring, computes curated NeuroFate axis scores, creates research-use risk summaries, and writes audit-friendly reports.
 

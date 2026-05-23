@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "neurofate"
-version = "0.3.0"
+version = "0.3.1"
 description = "Command-line research software for format-aware transcriptomic neurodegeneration risk scoring."
 readme = "README.md"
 requires-python = ">=3.11,<3.14"
